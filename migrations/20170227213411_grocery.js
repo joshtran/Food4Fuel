@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('location').notNullable();
     table.string('notes');
     table.string('email').notNullable().unique();
-    table.integer('phone_number').notNullable().unique();
+    table.string('phone_number').notNullable().unique();
   });
 };
 
