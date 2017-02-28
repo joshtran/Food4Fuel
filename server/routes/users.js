@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
 
       User.forge({
         first_name, last_name, email, password_digest
-      }, { hasTimestamps: true }).save()
+      }, { hasTimestamps: false }).save()
         .then(user => res.json({ success: true }))
         .catch(err => res.status(500).json({ error: err }));
 

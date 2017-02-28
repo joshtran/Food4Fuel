@@ -4,6 +4,8 @@ import map from 'lodash/map';
 import classnames from 'classnames';
 import validateInput from '../../../server/shared/validations/signup';
 import TextFieldGroup from '../common/TextFieldGroup';
+import { login } from '../../actions/authActions';
+import { connect } from 'react-redux';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -67,6 +69,10 @@ class SignupForm extends React.Component {
             type: 'success',
             text: 'You signed up successfully. Welcome!'
           });
+        // this.props.login(this.state).then(
+        //   (res) => this.context.router.push('/'),
+        //   (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
+        // );
           this.context.router.push('/');
         },
         (err) => this.setState({ errors: err.response.data, isLoading: false })
@@ -76,9 +82,9 @@ class SignupForm extends React.Component {
 
   render() {
     const { errors } = this.state;
-    const options = map(timezones, (val, key) =>
-      <option key={val} value={val}>{key}</option>
-    );
+    // const options = map(timezones, (val, key) =>
+    //   <option key={val} value={val}>{key}</option>
+    // );
     return (
       <form onSubmit={this.onSubmit}>
         <h1>Join our community!</h1>
@@ -148,4 +154,6 @@ SignupForm.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
 
-export default SignupForm;
+// export default SignupForm;
+
+export default connect(null, { login })(SignupForm);
