@@ -12,17 +12,12 @@ function validateInput(data, otherValidations) {
 
   return User.query({
     where: { email: data.email },
-    orWhere: { username: data.username }
   }).fetch().then(user => {
     if (user) {
-      if (user.get('username') === data.username) {
-        errors.username = 'There is user with such username';
-      }
       if (user.get('email') === data.email) {
         errors.email = 'There is user with such email';
       }
     }
-
     return {
       errors,
       isValid: isEmpty(errors)
@@ -33,9 +28,8 @@ function validateInput(data, otherValidations) {
 
 router.get('/:identifier', (req, res) => {
   User.query({
-    select: [ 'username', 'email' ],
-    where: { email: req.params.identifier },
-    orWhere: { username: req.params.identifier }
+    select: [ 'email' ],
+    where: { email: req.params.identifier }
   }).fetch().then(user => {
     res.json({ user });
   });
@@ -43,13 +37,14 @@ router.get('/:identifier', (req, res) => {
 
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   validateInput(req.body, commonValidations).then(({ errors, isValid }) => {
     if (isValid) {
-      const { username, password, timezone, email } = req.body;
+      const { first_name, last_name, password, email } = req.body;
       const password_digest = bcrypt.hashSync(password, 10);
 
       User.forge({
-        username, timezone, email, password_digest
+        first_name, last_name, email, password_digest
       }, { hasTimestamps: true }).save()
         .then(user => res.json({ success: true }))
         .catch(err => res.status(500).json({ error: err }));

@@ -9,11 +9,11 @@ class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      email: '',
+      first_name: '',
+      last_name: '',
       password: '',
       passwordConfirmation: '',
-      timezone: '',
+      email: '',
       errors: {},
       isLoading: false,
       invalid: false
@@ -59,7 +59,6 @@ class SignupForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-
     if (this.isValid()) {
       this.setState({ errors: {}, isLoading: true });
       this.props.userSignupRequest(this.state).then(
@@ -85,12 +84,21 @@ class SignupForm extends React.Component {
         <h1>Join our community!</h1>
 
         <TextFieldGroup
-          error={errors.username}
-          label="Username"
+          error={errors.firstName}
+          label="First Name"
           onChange={this.onChange}
           checkUserExists={this.checkUserExists}
-          value={this.state.username}
-          field="username"
+          value={this.state.firstName}
+          field="first_name"
+        />
+
+        <TextFieldGroup
+          error={errors.lastName}
+          label="Last Name"
+          onChange={this.onChange}
+          checkUserExists={this.checkUserExists}
+          value={this.state.lastName}
+          field="last_name"
         />
 
         <TextFieldGroup
@@ -119,20 +127,6 @@ class SignupForm extends React.Component {
           field="passwordConfirmation"
           type="password"
         />
-
-        <div className={classnames("form-group", { 'has-error': errors.timezone })}>
-          <label className="control-label">Timezone</label>
-          <select
-            className="form-control"
-            name="timezone"
-            onChange={this.onChange}
-            value={this.state.timezone}
-          >
-            <option value="" disabled>Choose Your Timezone</option>
-            {options}
-          </select>
-          {errors.timezone && <span className="help-block">{errors.timezone}</span>}
-        </div>
 
         <div className="form-group">
           <button disabled={this.state.isLoading || this.state.invalid} className="btn btn-primary btn-lg">
