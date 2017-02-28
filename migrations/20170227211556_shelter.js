@@ -10,7 +10,6 @@ exports.up = function(knex, Promise) {
     table.string('notes');
     table.string('email').notNullable().unique();
     table.integer('phone_number').notNullable().unique();
-    table.timestamps();
   });
 };
 

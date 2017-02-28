@@ -7,9 +7,8 @@ exports.up = function(knex, Promise) {
     table.integer('reward_points');
     table.string('password_digest').notNullable();
     table.string('drivers_license');
-    table.date('verified_at');
+    table.timestamp('verified_at');
     table.string('email').notNullable().unique();
-    table.timestamps();
   });
 };
 
