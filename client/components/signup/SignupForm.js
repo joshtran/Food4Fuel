@@ -4,6 +4,8 @@ import map from 'lodash/map';
 import classnames from 'classnames';
 import validateInput from '../../../server/shared/validations/signup';
 import TextFieldGroup from '../common/TextFieldGroup';
+import { login } from '../../actions/authActions';
+import { connect } from 'react-redux';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -68,25 +70,23 @@ class SignupForm extends React.Component {
             text: 'You signed up successfully. Welcome!'
           });
           this.context.router.push('/');
-        },
-        (err) => {
-          this.setState({ errors: err.response.data, isLoading: false })
-        }
-      );
+
+      }).catch((err) => this.setState({ errors: err.response.data, isLoading: false }));
+
     }
   }
 
   render() {
     const { errors } = this.state;
-    const options = map(timezones, (val, key) =>
-      <option key={val} value={val}>{key}</option>
-    );
+    // const options = map(timezones, (val, key) =>
+    //   <option key={val} value={val}>{key}</option>
+    // );
     return (
       <form onSubmit={this.onSubmit}>
         <h1>Join our community!</h1>
 
         <TextFieldGroup
-          error={errors.firstName}
+          error={errors.first_name}
           label="First Name"
           onChange={this.onChange}
           checkUserExists={this.checkUserExists}
@@ -95,7 +95,7 @@ class SignupForm extends React.Component {
         />
 
         <TextFieldGroup
-          error={errors.lastName}
+          error={errors.last_name}
           label="Last Name"
           onChange={this.onChange}
           checkUserExists={this.checkUserExists}
@@ -150,4 +150,6 @@ SignupForm.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
 
-export default SignupForm;
+// export default SignupForm;
+
+export default connect(null, { login })(SignupForm);

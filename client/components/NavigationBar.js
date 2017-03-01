@@ -11,6 +11,7 @@ class NavigationBar extends React.Component {
 
   render() {
     const { isAuthenticated } = this.props.auth;
+    console.log(this.props.auth.isAuthenticated);
 
     const userLinks = (
       <ul className="nav navbar-nav navbar-right">
