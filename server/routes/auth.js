@@ -10,14 +10,14 @@ router.post('/', (req, res) => {
   const { identifier, password } = req.body;
 
   User.query({
-    where: { username: identifier },
-    orWhere: { email: identifier }
+    where: { email: identifier }
   }).fetch().then(user => {
     if (user) {
       if (bcrypt.compareSync(password, user.get('password_digest'))) {
         const token = jwt.sign({
           id: user.get('id'),
-          username: user.get('username')
+          first_name: user.get('first_name'),
+          last_name: user.get('last_name')
         }, config.jwtSecret);
         res.json({ token });
       } else {
