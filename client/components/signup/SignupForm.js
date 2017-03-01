@@ -69,14 +69,8 @@ class SignupForm extends React.Component {
             type: 'success',
             text: 'You signed up successfully. Welcome!'
           });
-        // this.props.login(this.state).then(
-        //   (res) => this.context.router.push('/'),
-        //   (err) => this.setState({ errors: err.response.data.errors, isLoading: false })
-        // );
           this.context.router.push('/');
-        },
-        (err) => this.setState({ errors: err.response.data, isLoading: false })
-      );
+      }).catch((err) => this.setState({ errors: err.response.data, isLoading: false }));
     }
   }
 
