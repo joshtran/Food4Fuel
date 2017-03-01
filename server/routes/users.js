@@ -37,15 +37,15 @@ router.get('/:identifier', (req, res) => {
 
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   validateInput(req.body, commonValidations).then(({ errors, isValid }) => {
     if (isValid) {
       const { first_name, last_name, password, email } = req.body;
+
       const password_digest = bcrypt.hashSync(password, 10);
 
       User.forge({
         first_name, last_name, email, password_digest
-      }, { hasTimestamps: true }).save()
+      }, { hasTimestamps: false }).save()
         .then(user => res.json({ success: true }))
         .catch(err => res.status(500).json({ error: err }));
 
