@@ -90,20 +90,20 @@ class SignupForm extends React.Component {
         <h1>Join our community!</h1>
 
         <TextFieldGroup
-          error={errors.firstName}
+          error={errors.first_name}
           label="First Name"
           onChange={this.onChange}
           checkUserExists={this.checkUserExists}
-          value={this.state.firstName}
+          value={this.state.first_name}
           field="first_name"
         />
 
         <TextFieldGroup
-          error={errors.lastName}
+          error={errors.last_name}
           label="Last Name"
           onChange={this.onChange}
           checkUserExists={this.checkUserExists}
-          value={this.state.lastName}
+          value={this.state.last_name}
           field="last_name"
         />
 
