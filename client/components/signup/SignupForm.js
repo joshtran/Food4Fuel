@@ -69,7 +69,9 @@ class SignupForm extends React.Component {
           });
           this.context.router.push('/');
         },
-        (err) => this.setState({ errors: err.response.data, isLoading: false })
+        (err) => {
+          this.setState({ errors: err.response.data, isLoading: false })
+        }
       );
     }
   }
@@ -88,7 +90,7 @@ class SignupForm extends React.Component {
           label="First Name"
           onChange={this.onChange}
           checkUserExists={this.checkUserExists}
-          value={this.state.firstName}
+          value={this.state.first_name}
           field="first_name"
         />
 
@@ -97,7 +99,7 @@ class SignupForm extends React.Component {
           label="Last Name"
           onChange={this.onChange}
           checkUserExists={this.checkUserExists}
-          value={this.state.lastName}
+          value={this.state.last_name}
           field="last_name"
         />
 
