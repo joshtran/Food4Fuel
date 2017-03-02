@@ -22,3 +22,7 @@
 .grocery-img {
   width: 100%;
 }
+
+.active {
+  box-shadow: red 0 0 5px;
+}
