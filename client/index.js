@@ -15,6 +15,7 @@ import routes from './routes';
 
 const store = createStore(
   rootReducer,
+  __DEFAULT_STATE,
   compose(
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f

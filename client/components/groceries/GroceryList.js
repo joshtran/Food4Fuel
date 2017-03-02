@@ -1,27 +1,53 @@
+import { connect } from 'react-redux';
 import React from 'react';
 
 class GroceryList extends React.Component {
-  render() {
-    return (
-        <div className="col-md-3">
-          <div className = "grocery-panel panel panel-default">
-             <div className = "panel-heading">
-              Grocery 1
-             </div>
-            <img className="grocery-img" src="http://placehold.it/950x650" alt="Grocery Image"/>
-            <div className = "panel-body">
-              <dl>
-                <dt>Boxes Available:</dt>
-                <dd>7</dd>
-                <dt>Pickup hours:</dt>
-                <dd>5pm to 8pm</dd>
-              </dl>
-            </div>
-          </div>
-        </div>
 
+  className(id) {
+    return `grocery-panel panel panel-default ${this.props.selectedStore === id ? 'active' : ''}`
+  }
+
+  render() {
+    console.log(this.props.groceries);
+    console.log(this.props.selectedStore);
+    return (
+      <div>
+        {
+          this.props.groceries.map(grocery => (
+            <div key={grocery.id} className="col-md-3" onClick={this.props.selectStore(grocery.id)}>
+              <div className={this.className(grocery.id)}>
+                 <div className = "panel-heading">
+                  {grocery.name}
+                 </div>
+                <img className="grocery-img" src="http://placehold.it/950x650" alt="Grocery Image"/>
+                <div className = "panel-body">
+                  <dl>
+                    <dt>Boxes Available:</dt>
+                    <dd></dd>
+                    <dt>Pickup hours:</dt>
+                    <dd></dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     );
   }
 }
 
-export default GroceryList;
+const mapStateToProps = (state) => ({
+  groceries: state.groceries[0],
+  selectedStore: state.selectedStore
+});
+
+const storeSelectedAction = (id) => ({ type: 'STORE_SELECTED', payload: id });
+
+const mapDispatchToProps = (dispatch) => ({
+  selectStore(id) {
+    return () => dispatch(storeSelectedAction(id));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(GroceryList);

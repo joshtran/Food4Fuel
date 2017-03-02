@@ -17,10 +17,6 @@ class GroceriesPage extends React.Component {
         </div>
         <div className="col-md-9">
           <GroceryList />
-          <GroceryList />
-          <GroceryList />
-          <GroceryList />
-          <GroceryList />
         </div>
       </div>
     )
