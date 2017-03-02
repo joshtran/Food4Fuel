@@ -38,7 +38,7 @@ class GroceryList extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  groceries: state.groceries[0],
+  groceries: state.groceries,
   selectedStore: state.selectedStore
 });
 
