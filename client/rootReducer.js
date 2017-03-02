@@ -5,5 +5,15 @@ import auth from './reducers/auth';
 
 export default combineReducers({
   flashMessages,
-  auth
+  auth,
+  groceries: (state = [], action) =>  state,
+  selectedStore: (state = null, { type, payload }) => {
+    switch(type)
+    {
+      case 'STORE_SELECTED':
+        return payload;
+      default:
+        return state;
+    }
+  }
 });
