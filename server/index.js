@@ -11,8 +11,10 @@ import users from './routes/users';
 import auth from './routes/auth';
 import events from './routes/events';
 import groceries from './routes/groceries';
+import packages from './routes/packages';
 
-import { getAllGroceries } from './models/groceries';
+import { getAllGroceries } from './models/grocery';
+import { getAllPackages } from './models/package';
 
 let app = express();
 
@@ -22,6 +24,7 @@ app.use('/api/users', users);
 app.use('/api/auth', auth);
 app.use('/api/events', events);
 app.use('/api/groceries', groceries);
+app.use('/api/package', packages);
 
 const compiler = webpack(webpackConfig);
 
@@ -34,12 +37,10 @@ app.use(webpackHotMiddleware(compiler));
 
 app.get('/default_state.js', (req, res) => {
   Promise.all([
-    getAllGroceries()
-    // getAllShelters()
+    getAllGroceries(),
   ]).then(groceries => {
     var state = {
       groceries
-      // shelters
     };
     res.set('Content-Type', 'application/javascript');
     res.send(`var __DEFAULT_STATE = ${JSON.stringify(state)};`);

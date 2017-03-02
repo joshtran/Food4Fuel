@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { GET_PACKAGE } from './types';
+import { GET_PACKAGES } from './types';
 
-export function setPackage(pkg) {
+export function retrievePackages(packages) {
   return {
     type: GET_PACKAGE,
-    pkg
+    packages
   };
 }
 
@@ -17,7 +17,7 @@ export function getPackageData() {//data) {
       // console.log("JSON.Parse(res)", JSON.parse(res));
       const packageArray = res.request.response;
       console.log("packageArray", packageArray);
-      dispatch(setPackage(packageArray));
+      dispatch(retrievePackages(packageArray));
       // return packageArray;
       // dispatch({ type: 'packages', payload: })
       // res.data.forEach(p => dispatch(setPackage(p)));
