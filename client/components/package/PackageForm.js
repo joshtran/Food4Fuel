@@ -7,9 +7,9 @@ import { getPackageData } from '../../actions/packageActions';
 
 class PackageForm extends React.Component {
 
-  componentDidMount() {
-    this.props.getPackageData();
-  }
+  // componentDidMount() {
+  //   this.props.getPackageData();
+  // }
 
   render() {
     return(
