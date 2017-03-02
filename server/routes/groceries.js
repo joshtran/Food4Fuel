@@ -1,4 +1,4 @@
-import Grocery, { getAllGroceries } from '../models/groceries';
+import Grocery, { getAllGroceries } from '../models/grocery';
 import express from 'express';
 
 const router = new express.Router();

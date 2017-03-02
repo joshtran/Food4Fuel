@@ -2,23 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-class GroceryDetails extends React.Component {
+class ShelterDetails extends React.Component {
   render() {
-    if(!this.props.store) {
-      return <div>Pick a store</div>;
+    if(!this.props.shelter) {
+      return <div>Pick a shelter</div>;
     }
 
-    const { name, location, notes, phone_number } = this.props.store;
+    const { name, location, notes, phone_number } = this.props.shelter;
 
     return (
       <div className = "panel panel-default">
          <div className = "panel-heading">
-          Grocery Store Details
+          Shelter Details
          </div>
 
          <div className = "panel-body">
           <dl>
-            <dt>Grocery Store name:</dt>
+            <dt>Shelter name:</dt>
             <dd>{name}</dd>
             <dt>Pickup hours:</dt>
             <dd></dd>
@@ -37,9 +37,9 @@ class GroceryDetails extends React.Component {
 
 const mapStateToProps = (state) => {
 
-  const store = state.groceries.find(x=> x.id === state.selectedStore);
+  const shelter = state.shelters.find(x=> x.id === state.selectedShelter);
 
-  return { store };
+  return { shelter };
 }
 
-export default connect(mapStateToProps)(GroceryDetails);
+export default connect(mapStateToProps)(ShelterDetails);
