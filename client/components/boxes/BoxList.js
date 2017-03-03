@@ -5,7 +5,7 @@ class BoxList extends React.Component {
 
   render() {
     console.log(this.props.boxes);
-    
+
     return (
       <div>
         <div className="col-md-4">

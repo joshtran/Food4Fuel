@@ -7,5 +7,8 @@ const Package = bookshelf.Model.extend({
 export default Package;
 
 export function getAllPackages() {
-  return Package.fetchAll()
+  console.log('inside models/package.js\n');
+  return Package.fetchAll().then(packages => {
+    res.json({ packages });
+  });
 }

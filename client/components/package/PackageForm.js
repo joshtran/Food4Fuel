@@ -13,8 +13,28 @@ class PackageForm extends React.Component {
 
   render() {
     return(
-      <div className="jumbotron">
-        <h1>Package</h1>
+      <div className="col-md-6">
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            Package
+          </div>
+          <div className="panel-body">
+            <dl>
+              <dt>You will be picking up from:</dt>
+              <dd>IGA</dd>
+              <dt>Your Contact at IGA:</dt>
+              <dd>Godby Prick Fiat</dd>
+              <dt>Pickup Notes:</dt>
+              <dd>Better git it in yer soul</dd>
+              <dt>You will be helping out:</dt>
+              <dd>Penelope Shelter</dd>
+              <dt>Your Contact at Penelope:</dt>
+              <dd>Tell 'em aigue</dd>
+              <dt>Pickup Notes:</dt>
+              <dd>“There is a time for many words, and there is also a time for sleep.”</dd>
+            </dl>
+          </div>
+        </div>
       </div>
     );
   }

@@ -8,20 +8,25 @@ class PackageDetails extends React.Component {
     return (
       <div className = "panel panel-default">
         <div className = "panel-heading">
-          Grocery Store Details
+          Package Details
         </div>
 
         <div className = "panel-body">
-        <dl>
-          <dt>Pickup:</dt>
-          <dd>Some Store</dd>
-          <dt>Donation:</dt>
-          <dd>Some Shelter</dd>
-          <dt>Distance:</dt>
-          <dd>999 kilometers</dd>
-        </dl>
+          <dl>
+            <dt>Pickup:</dt>
+            <dd>Some Store</dd>
+            <dt>Donation:</dt>
+            <dd>Some Shelter</dd>
+            <dt>Distance:</dt>
+            <dd>999 kilometers</dd>
+          </dl>
+          <a href='/' name='cancel'>Cancel Package</a>
         </div>
+
+        <div className="panel-footer">
+          <button className="btn btn-primary btn-block" type="submit">Confirm</button>
         </div>
+      </div>
     );
   }
 }
