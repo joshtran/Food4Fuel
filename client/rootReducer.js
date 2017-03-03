@@ -26,5 +26,5 @@ export default combineReducers({
         return state;
     }
   },
-  boxes: (state = [], action) => state
+  boxesCounter
 });
