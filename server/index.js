@@ -14,6 +14,7 @@ import groceries from './routes/groceries';
 import packages from './routes/packages';
 import shelters from './routes/shelters';
 import boxes from './routes/boxes';
+import notifications from './routes/notifications';
 
 import { getAllPackages } from './models/package';
 import { getAllGroceries } from './models/grocery';
@@ -31,6 +32,7 @@ app.use('/api/groceries', groceries);
 app.use('/api/package', packages);
 app.use('/api/shelters', shelters);
 app.use('/api/boxes', boxes);
+app.use('/api/notifications', notifications);
 
 const compiler = webpack(webpackConfig);
 
