@@ -1,8 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { routeTo } from '../../routes';
 
 class GroceryDetails extends React.Component {
+
+  //this way you don't need to bind 'this'
+  onClick() {
+    //TODO call action to update state with selected grocery
+    routeTo('/');
+  };
+
   render() {
     if(!this.props.store) {
       return <div>Pick a store</div>;
@@ -28,6 +35,8 @@ class GroceryDetails extends React.Component {
             <dd>{phone_number}</dd>
             <dt>Notes:</dt>
             <dd>{notes}</dd>
+            <dt></dt>
+            <dd><button className="btn btn-primary btn-lg" onClick={this.onClick.bind(this)}></button></dd>
           </dl>
          </div>
       </div>

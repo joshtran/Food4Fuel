@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import React from 'react';
+import { storeSelectedAction } from '../../actions/groceriesActions';
 
 class GroceryList extends React.Component {
 
@@ -8,8 +9,6 @@ class GroceryList extends React.Component {
   }
 
   render() {
-    console.log(this.props.groceries);
-    console.log(this.props.selectedStore);
     return (
       <div>
         {
@@ -41,8 +40,6 @@ const mapStateToProps = (state) => ({
   groceries: state.groceries,
   selectedStore: state.selectedStore
 });
-
-const storeSelectedAction = (id) => ({ type: 'STORE_SELECTED', payload: id });
 
 const mapDispatchToProps = (dispatch) => ({
   selectStore(id) {
