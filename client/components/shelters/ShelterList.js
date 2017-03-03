@@ -18,7 +18,7 @@ class ShelterList extends React.Component {
                  <div className = "panel-heading">
                   {shelter.name}
                  </div>
-                <img className="grocery-img" src="http://placehold.it/950x650" alt="Shelter Image"/>
+                <img className="panel-img" src="http://placehold.it/950x650" alt="Shelter Image"/>
                 <div className = "panel-body">
                   <dl>
                     <dt>Drop-off hours:</dt>

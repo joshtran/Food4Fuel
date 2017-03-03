@@ -10,6 +10,7 @@ import PackagePage from './components/package/PackagePage';
 import GroceriesPage from './components/groceries/GroceriesPage';
 import SheltersPage from './components/shelters/SheltersPage';
 import BoxesPage from './components/boxes/BoxesPage';
+import DashboardPage from './components/dashboard/DashboardPage';
 
 import requireAuth from './utils/requireAuth';
 
@@ -23,5 +24,6 @@ export default (
     <Route path="groceries" component={GroceriesPage} />
     <Route path="shelters" component={SheltersPage} />
     <Route path="boxes" component={BoxesPage} />
+    <Route path="dashboard" component={DashboardPage} />
   </Route>
 )
