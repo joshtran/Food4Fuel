@@ -11,10 +11,13 @@ import users from './routes/users';
 import auth from './routes/auth';
 import events from './routes/events';
 import groceries from './routes/groceries';
+import packages from './routes/packages';
 import shelters from './routes/shelters';
 
+import { getAllPackages } from './models/package';
 import { getAllGroceries } from './models/grocery';
 import { getAllShelters } from './models/shelter'
+
 
 let app = express();
 
@@ -24,6 +27,7 @@ app.use('/api/users', users);
 app.use('/api/auth', auth);
 app.use('/api/events', events);
 app.use('/api/groceries', groceries);
+app.use('/api/package', packages);
 app.use('/api/shelters', shelters);
 
 const compiler = webpack(webpackConfig);
