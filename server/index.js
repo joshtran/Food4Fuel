@@ -13,8 +13,8 @@ import events from './routes/events';
 import groceries from './routes/groceries';
 import boxes from './routes/boxes';
 
-import { getAllGroceries } from './models/groceries';
-import { getAllBoxes } from './models/boxes';
+import { getAllGroceries } from './models/grocery';
+import { getAllBoxes } from './models/box';
 
 let app = express();
 
@@ -37,11 +37,13 @@ app.use(webpackHotMiddleware(compiler));
 
 app.get('/default_state.js', (req, res) => {
   Promise.all([
-    getAllGroceries()
+    getAllGroceries(),
+    getAllBoxes()
     // getAllShelters()
-  ]).then(groceries => {
+  ]).then(([groceries, boxes]) => {
     var state = {
-      groceries
+      groceries,
+      boxes
       // shelters
     };
     res.set('Content-Type', 'application/javascript');

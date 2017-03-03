@@ -1,4 +1,4 @@
-import Box, { getAllBoxes } from '../models/boxes';
+import Box, { getAllBoxes } from '../models/box';
 import express from 'express';
 
 const router = new express.Router();

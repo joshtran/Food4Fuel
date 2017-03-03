@@ -19,7 +19,7 @@ class GroceryList extends React.Component {
                  <div className = "panel-heading">
                   {grocery.name}
                  </div>
-                <img className="grocery-img" src="http://placehold.it/950x650" alt="Grocery Image"/>
+                <img className="panel-img" src="http://placehold.it/950x650" alt="Grocery Image"/>
                 <div className = "panel-body">
                   <dl>
                     <dt>Boxes Available:</dt>
@@ -38,7 +38,7 @@ class GroceryList extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  groceries: state.groceries[0],
+  groceries: state.groceries,
   selectedStore: state.selectedStore
 });
 

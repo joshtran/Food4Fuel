@@ -37,7 +37,7 @@ class GroceryDetails extends React.Component {
 
 const mapStateToProps = (state) => {
 
-  const store = state.groceries[0].find(x=> x.id === state.selectedStore);
+  const store = state.groceries.find(x=> x.id === state.selectedStore);
 
   return { store };
 }
