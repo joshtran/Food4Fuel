@@ -25,5 +25,6 @@ export default combineReducers({
       default:
         return state;
     }
-  }
+  },
+  boxes: (state = [], action) => state
 });
