@@ -15,7 +15,7 @@ class GroceryList extends React.Component {
         {
           this.props.groceries.map(grocery => (
             <div key={grocery.id} className="col-md-3" onClick={this.props.selectStore(grocery.id)}>
-              <div className={this.className(grocery.id)}>
+              // <div className={this.className(grocery.id)}>
                  <div className = "panel-heading">
                   {grocery.name}
                  </div>

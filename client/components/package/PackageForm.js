@@ -3,7 +3,7 @@ import TextFieldGroup from '../common/TextFieldGroup';
 import validateInput from '../../../server/shared/validations/login';
 // import classnames from 'classnames';
 import { connect } from 'react-redux';
-import { getPackageData } from '../../actions/packageActions';
+import { postPackageData } from '../../actions/packageActions';
 
 class PackageForm extends React.Component {
 
@@ -40,12 +40,12 @@ class PackageForm extends React.Component {
   }
 }
 
-PackageForm.propTypes = {
-  getPackageData: React.PropTypes.func.isRequired
-}
+// PackageForm.propTypes = {
+//   postPackageData: React.PropTypes.func.isRequired
+// }
 
 PackageForm.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
 
-export default connect(null, { getPackageData })(PackageForm);
+export default connect(null, { postPackageData })(PackageForm);
