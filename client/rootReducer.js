@@ -15,5 +15,15 @@ export default combineReducers({
       default:
         return state;
     }
+  },
+  shelters: (state = [], action) =>  state,
+  selectedShelter: (state = null, { type, payload }) => {
+    switch(type)
+    {
+      case 'SHELTER_SELECTED':
+        return payload;
+      default:
+        return state;
+    }
   }
 });

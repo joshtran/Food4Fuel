@@ -8,6 +8,7 @@ import LoginPage from './components/login/LoginPage';
 import NewEventPage from './components/events/NewEventPage';
 import PackagePage from './components/package/PackagePage';
 import GroceriesPage from './components/groceries/GroceriesPage';
+import SheltersPage from './components/shelters/SheltersPage';
 
 
 import requireAuth from './utils/requireAuth';
@@ -20,5 +21,6 @@ export default (
     <Route path="package" component={PackagePage} />
     <Route path="new-event" component={requireAuth(NewEventPage)} />
     <Route path="groceries" component={GroceriesPage} />
+    <Route path="shelters" component={SheltersPage} />
   </Route>
 )
