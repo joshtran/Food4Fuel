@@ -8,3 +8,4 @@ export function retrieveGroceries(groceries) {
   };
 }
 
+export const storeSelectedAction = (id) => ({ type: 'STORE_SELECTED', payload: id });
