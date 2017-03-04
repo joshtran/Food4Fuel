@@ -13,8 +13,10 @@ export function insertPackages(data) {
   }, { hasTimestamps: true }).save()
 }
 
-// export function deliveryValidate(data) {
-//   return Package.forge({
-//     delivered_at: new Date().toISOString() //TODO: this needs to be for the shelter form
-//   }, { hasTimestamps: true }).save()
-// }
+export function deliveryValidate(data) {
+  return Package.query({
+    where: {id: 1}
+    }).save(
+    { delivered_at: new Date().toISOString() //TODO: this needs to be for the shelter form
+  });
+}

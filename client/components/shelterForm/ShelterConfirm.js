@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { postDeliveredAt } from '../../actions/shelterConfirmActions';
 
 class ShelterForm extends React.Component {
   render() {
@@ -31,7 +32,7 @@ class ShelterForm extends React.Component {
             </tr>
           </tbody>
         </table>
-        <button className="btn btn-primary btn-outline" type="submit">
+        <button className="btn btn-primary btn-outline" type="submit" onClick={this.props.validateDelivery('data')}>
           Validate Delivery
         </button>
       </div>
@@ -39,8 +40,18 @@ class ShelterForm extends React.Component {
   }
 }
 
-ShelterForm.contextTypes = {
-  router: React.PropTypes.object.isRequired
+// ShelterForm.contextTypes = {
+//   router: React.PropTypes.object.isRequired
+// }
+
+const mapStateToProps = (state) => {
+  packages: state.packages
 }
 
-export default connect(null, null)(ShelterForm);
+const mapDispatchToProps = (dispatch) => ({
+  validateDelivery(data) {
+    return () => dispatch(postDeliveredAt(data));
+  }
+});
+
+export default connect(null, mapDispatchToProps)(ShelterForm);

@@ -1,4 +1,5 @@
-import ShelterForm, { deliveryValidate } from '../models/ShelterForm';
+import ShelterForm from '../models/ShelterForm';
+import { deliveryValidate } from '../models/package';
 import express from 'express';
 
 const router = new express.Router();
