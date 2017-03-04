@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { VALIDATE_DELIVERY } from './types';
+import { CONFIRM_DELIVERY } from './types';
 
 export function postDeliveredAt(data) {//data) {
   return dispatch => {

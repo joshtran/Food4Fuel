@@ -9,33 +9,31 @@ class ShelterForm extends React.Component {
           <h1>New delivery! </h1>
         </header>
 
-        <div className="panel panel-default items">
-          <table className="table table-bordered">
-            <thead>
-              <tr>
-                <th colSpan="2">Product</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Stupid thing</th>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th colSpan="4">
-                  TOTAL:
-                </th>
-                <th>
-
-                </th>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              <th>Transporter</th>
+              <th>Package Origin</th>
+              <th>Boxes of Produce</th>
+              <th>Boxes of Baked Goods</th>
+              <th>Boxes of Dairy</th>
+              <th>Expected Delivery</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr scope="row">
+              <td>Charles Mingus</td>
+              <td>IGA</td>
+              <td>2</td>
+              <td>2</td>
+              <td>2</td>
+              <td>February 7, 2016 at 6:30 pm</td>
+            </tr>
+          </tbody>
+        </table>
+        <button className="btn btn-primary btn-outline" type="submit">
+          Validate Delivery
+        </button>
       </div>
     );
   }
