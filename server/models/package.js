@@ -6,9 +6,9 @@ const Package = bookshelf.Model.extend({
 
 export default Package;
 
-export function insertPackages() {
-  console.log('inside models/package.js\n');
-  return Package.fetchAll().then(packages => {
-    res.json({ packages });
-  });
+export function insertPackages(data) {
+  return Package.forge({
+    shelter_id: 1,
+    users_id: 1
+  }, { hasTimestamps: true }).save()
 }
