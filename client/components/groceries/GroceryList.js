@@ -15,10 +15,10 @@ class GroceryList extends React.Component {
           this.props.groceries.map(grocery => (
             <div key={grocery.id} className="col-md-3" onClick={this.props.selectStore(grocery.id)}>
               <div className={this.className(grocery.id)}>
-                 <div className = "panel-heading">
+                 <div className = "panel-heading shelter-grocery-pnl">
                   {grocery.name}
                  </div>
-                <img className="panel-img" src="http://placehold.it/950x650" alt="Grocery Image"/>
+                <img className="panel-img" src={`/pictures/groceries/${grocery.picture}`} alt="Grocery Image"/>
                 <div className = "panel-body">
                   <dl>
                     <dt>Boxes Available:</dt>

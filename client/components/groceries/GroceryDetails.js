@@ -7,7 +7,7 @@ class GroceryDetails extends React.Component {
   //this way you don't need to bind 'this'
   onClick() {
     //TODO call action to update state with selected grocery
-    routeTo('/');
+    routeTo('/boxes');
   };
 
   render() {
