@@ -8,10 +8,10 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       return Promise.all([
         // Inserts seed entries
-        knex('package').insert({shelter_id: 1, users_id: 1, delivered_at: time, created_at: date}),
-        knex('package').insert({shelter_id: 2, users_id: 2, delivered_at: time, created_at: date}),
-        knex('package').insert({shelter_id: 3, users_id: 3, delivered_at: time, created_at: date}),
-        knex('package').insert({shelter_id: 4, users_id: 4, delivered_at: time, created_at: date})
+        knex('package').insert({shelter_id: 1, users_id: 1, delivered_at: date, created_at: date}),
+        knex('package').insert({shelter_id: 2, users_id: 2, delivered_at: date, created_at: date}),
+        knex('package').insert({shelter_id: 3, users_id: 3, delivered_at: date, created_at: date}),
+        knex('package').insert({shelter_id: 4, users_id: 4, delivered_at: date, created_at: date})
       ]);
     });
 };
