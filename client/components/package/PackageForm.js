@@ -1,6 +1,6 @@
 import React from 'react';
 import TextFieldGroup from '../common/TextFieldGroup';
-import validateInput from '../../../server/shared/validations/login';
+// import validateInput from '../../../server/shared/validations/login';
 // import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { postPackageData } from '../../actions/packageActions';

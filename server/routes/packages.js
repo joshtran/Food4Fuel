@@ -5,7 +5,11 @@ const router = new express.Router();
 
 router.post('/', (req, res) => {
   console.log('inside routes/packages.js\n');
-  insertPackages(req.body).then(x => res.json(x))
+  insertPackages(req.body).then(x => res.json(x));
 })
+
+// router.post('/shelter-form', (req, res) => {
+//   deliveryValidate(req.body).then(x => res.json(x));
+// })
 
 export default router;
