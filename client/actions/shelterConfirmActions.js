@@ -1,16 +1,9 @@
 import axios from 'axios';
-import { GET_PACKAGES } from './types';
+import { CONFIRM_DELIVERY } from './types';
 
-export function retrievePackages(packages) {
-  return {
-    type: GET_PACKAGE,
-    packages
-  };
-}
-
-export function postPackageData(data) {//data) {
+export function postDeliveredAt(data) {//data) {
   return dispatch => {
-    return axios.post('/api/package', data) //, data)
+    return axios.post('/api/shelter-form', data) //, data)
     .then(res => {
       console.log("in the postPackageData function");
       console.log('data', data)
