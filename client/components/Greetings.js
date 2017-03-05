@@ -1,6 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router';
+import { connect } from 'react-redux';
 
 class Greetings extends React.Component {
+
+  componentDidMount() {
+    const { isAuthenticated } = this.props.auth;
+    if (isAuthenticated) {
+      this.context.router.push('/groceries');
+    }
+  }
+
   render() {
     return (
       <div>
@@ -56,4 +66,18 @@ class Greetings extends React.Component {
   }
 }
 
-export default Greetings;
+Greetings.propTypes = {
+  auth: React.PropTypes.object.isRequired,
+}
+
+Greetings.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
+
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+
+export default connect(mapStateToProps)(Greetings);

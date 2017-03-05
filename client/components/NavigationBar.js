@@ -42,7 +42,6 @@ class NavigationBar extends React.Component {
       </nav>
     );
 
-
     return (
       <div>
       { isAuthenticated ? userNav : guestNav }
