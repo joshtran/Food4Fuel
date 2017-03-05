@@ -20,6 +20,7 @@ import { getAllPackages } from './models/package';
 import { getAllGroceries } from './models/grocery';
 import { getAllShelters } from './models/shelter'
 import { getAllBoxes } from './models/box';
+import { getAllGroceryAvailabilities } from './models/groceryAvailability';
 
 let app = express();
 

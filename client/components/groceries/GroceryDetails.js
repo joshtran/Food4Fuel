@@ -36,7 +36,7 @@ class GroceryDetails extends React.Component {
             <dt>Notes:</dt>
             <dd>{notes}</dd>
             <dt></dt>
-            <dd><button className="btn btn-primary btn-lg" onClick={this.onClick.bind(this)}></button></dd>
+            <dd><button className="btn btn-primary btn-lg" onClick={this.onClick.bind(this)}>Next</button></dd>
           </dl>
          </div>
       </div>
@@ -46,7 +46,7 @@ class GroceryDetails extends React.Component {
 
 const mapStateToProps = (state) => {
 
-  const store = state.groceries.find(x=> x.id === state.selectedStore);
+  const store = state.groceries.find(x=> x.id === state.selectedGrocery);
 
   return { store };
 }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_GROCERIES } from './types';
+import { GET_GROCERIES, GROCERY_SELECTED } from './types';
 
 export function retrieveGroceries(groceries) {
   return {
@@ -8,4 +8,4 @@ export function retrieveGroceries(groceries) {
   };
 }
 
-export const storeSelectedAction = (id) => ({ type: 'STORE_SELECTED', payload: id });
+export const grocerySelectedAction = (id) => ({ type: GROCERY_SELECTED, payload: id });
