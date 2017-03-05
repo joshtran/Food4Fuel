@@ -2,29 +2,18 @@ import { combineReducers } from 'redux';
 
 import flashMessages from './reducers/flashMessages';
 import auth from './reducers/auth';
+import selectedGrocery from './reducers/selectedGrocery';
+import selectedShelter from './reducers/selectedShelter';
+import groceries from './reducers/groceries';
+import shelters from './reducers/shelters';
+import boxes from './reducers/boxes';
 
 export default combineReducers({
   flashMessages,
   auth,
-  groceries: (state = [], action) =>  state,
-  selectedStore: (state = null, { type, payload }) => {
-    switch(type)
-    {
-      case 'STORE_SELECTED':
-        return payload;
-      default:
-        return state;
-    }
-  },
-  shelters: (state = [], action) =>  state,
-  selectedShelter: (state = null, { type, payload }) => {
-    switch(type)
-    {
-      case 'SHELTER_SELECTED':
-        return payload;
-      default:
-        return state;
-    }
-  },
-  boxes: (state = [], action) => state
+  groceries,
+  selectedGrocery,
+  shelters,
+  selectedShelter,
+  boxes
 });
