@@ -16,9 +16,9 @@ class BoxesPage extends React.Component {
           </div>
         </div>
         <div className="col-md-9">
-          <BoxList />
-          <BoxList />
-          <BoxList />
+          <BoxList type="Produce" />
+          <BoxList type="Dairy" />
+          <BoxList type="Baked Goods" />
         </div>
       </div>
     )

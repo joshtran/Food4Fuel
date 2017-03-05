@@ -42,8 +42,6 @@ const mapStateToProps = (state) => ({
   selectedStore: state.selectedStore
 });
 
-const storeSelectedAction = (id) => ({ type: 'STORE_SELECTED', payload: id });
-
 const mapDispatchToProps = (dispatch) => ({
   selectStore(id) {
     return () => dispatch(storeSelectedAction(id));

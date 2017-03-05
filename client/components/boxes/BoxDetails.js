@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class BoxDetails extends React.Component {
   render() {
@@ -11,11 +12,11 @@ class BoxDetails extends React.Component {
          <div className = "panel-body">
           <dl>
             <dt>Produce:</dt>
-            <dd></dd>
+            <dd>{this.props.produce}</dd>
             <dt>Dairy:</dt>
-            <dd></dd>
+            <dd>{this.props.dairy}</dd>
             <dt>Pastry:</dt>
-            <dd></dd>
+            <dd>{this.props.bakedGoods}</dd>
           </dl>
          </div>
       </div>
@@ -23,4 +24,10 @@ class BoxDetails extends React.Component {
   }
 }
 
-export default BoxDetails;
+const mapStateToProps = (state) => ({
+  produce: state.produce,
+  dairy: state.dairy,
+  bakedGoods: state.bakedGoods
+});
+
+export default connect(mapStateToProps)(BoxDetails);
