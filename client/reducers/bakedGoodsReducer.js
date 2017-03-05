@@ -1,11 +1,10 @@
-import { INCREMENT_BAKED_GOODS } from '../actions/types';
-import { DECREMENT_BAKED_GOODS } from '../actions/types';
+import { INCREMENT_BAKED_GOODS, DECREMENT_BAKED_GOODS } from '../actions/types';
 
-let initState = {
+let initialState = {
   baked_goods: 0
 };
 
-export default (state = initState.baked_goods, action) => {
+export default (state = initialState.baked_goods, action) => {
   switch(action.type) {
     case INCREMENT_BAKED_GOODS:
       return state + 1;

@@ -1,11 +1,10 @@
-import { INCREMENT_DAIRY } from '../actions/types';
-import { DECREMENT_DAIRY } from '../actions/types';
+import { INCREMENT_DAIRY, DECREMENT_DAIRY } from '../actions/types';
 
-let initState = {
+let initialState = {
   dairy: 0
 };
 
-export default (state = initState.dairy, action) => {
+export default (state = initialState.dairy, action) => {
   switch(action.type) {
     case INCREMENT_DAIRY:
       return state + 1;

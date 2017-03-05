@@ -2,7 +2,6 @@ import { combineReducers } from 'redux';
 
 import flashMessages from './reducers/flashMessages';
 import auth from './reducers/auth';
-import boxesCounter from './reducers/boxesCounter';
 import produceReducer from './reducers/produceReducer';
 import dairyReducer from './reducers/dairyReducer';
 import bakedGoodsReducer from './reducers/bakedGoodsReducer';

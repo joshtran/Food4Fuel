@@ -1,11 +1,10 @@
-import { INCREMENT_PRODUCE } from '../actions/types';
-import { DECREMENT_PRODUCE } from '../actions/types';
+import { INCREMENT_PRODUCE, DECREMENT_PRODUCE } from '../actions/types';
 
-let initState = {
+let initialState = {
   produce: 0
 };
 
-export default (state = initState.produce, action) => {
+export default (state = initialState.produce, action) => {
   console.log('produce reducer hit');
   switch(action.type) {
     case INCREMENT_PRODUCE:
