@@ -8,6 +8,15 @@ class GroceryList extends React.Component {
     return `grocery-panel panel panel-default ${this.props.selectedGrocery === id ? 'active' : ''}`
   }
 
+  boxesAvailable(boxes, groceryId) {
+    let groceryBoxes = boxes.filter( box => {
+      if (groceryId === box.grocery_id && box.package_id === null) {
+        return box;
+      }
+    });
+    return groceryBoxes.length
+  }
+
   render() {
     return (
       <div>
@@ -22,7 +31,7 @@ class GroceryList extends React.Component {
                 <div className = "panel-body">
                   <dl>
                     <dt>Boxes Available:</dt>
-                    <dd></dd>
+                    <dd>{this.boxesAvailable(this.props.boxes, grocery.id)}</dd>
                     <dt>Pickup hours:</dt>
                     <dd>{grocery.pickup_hours}</dd>
                   </dl>
@@ -38,7 +47,8 @@ class GroceryList extends React.Component {
 
 const mapStateToProps = (state) => ({
   groceries: state.groceries,
-  selectedGrocery: state.selectedGrocery
+  selectedGrocery: state.selectedGrocery,
+  boxes: state.boxes
 });
 
 const mapDispatchToProps = (dispatch) => ({
