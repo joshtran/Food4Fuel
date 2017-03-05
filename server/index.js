@@ -26,6 +26,7 @@ import { deliveryValidate } from './models/shelter-form';
 let app = express();
 
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 app.use('/api/users', users);
 app.use('/api/auth', auth);

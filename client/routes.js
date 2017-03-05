@@ -1,6 +1,5 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
-
+import { Route, IndexRoute, browserHistory } from 'react-router';
 import App from './components/App';
 import Greetings from './components/Greetings';
 import SignupPage from './components/signup/SignupPage';
@@ -14,6 +13,10 @@ import DashboardPage from './components/dashboard/DashboardPage';
 import ShelterPage from './components/shelterForm/ShelterPage';
 
 import requireAuth from './utils/requireAuth';
+
+export const routeTo = (route) => {
+  return browserHistory.push(route);
+}
 
 export default (
   <Route path="/" component={App}>
