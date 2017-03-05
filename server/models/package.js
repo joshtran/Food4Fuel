@@ -15,8 +15,9 @@ export function insertPackages(data) {
 
 export function deliveryValidate(data) {
   return Package.query({
-    where: {id: 1}
+    where: {id: 2}
     }).save(
-    { delivered_at: new Date().toISOString() //TODO: this needs to be for the shelter form
-  });
+    { delivered_at: new Date().toISOString() },
+    { method: 'update' }
+  );
 }

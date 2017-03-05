@@ -22,7 +22,7 @@ import { getAllGroceries } from './models/grocery';
 import { getAllShelters } from './models/shelter'
 import { getAllBoxes } from './models/box';
 import { getAllGroceryAvailabilities } from './models/groceryAvailability';
-import { deliveryValidate } from './models/shelter-form';
+import { deliveryValidate } from './models/ShelterForm';
 
 let app = express();
 

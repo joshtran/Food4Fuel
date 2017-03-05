@@ -48,7 +48,7 @@ const mapDispatchToProps = (dispatch) => ({
 // }
 
 // PackageDetails.propTypes = {
-//   postPackageData: React.PropTypes.func.isRequired
+//   postPackageData: React.PropTypes.func.isRequred
 // }
 
 // PackageDetails.contextTypes = {
