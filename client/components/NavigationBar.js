@@ -30,15 +30,9 @@ class NavigationBar extends React.Component {
 
     const guestNav = (
       <nav id="landingNav" className="navbar navbar-fixed-top">
-        <div className="container-fluid">
-          <div className="navbar-header">
-          </div>
-          <ul className="nav navbar-nav navbar-right">
-            <li><Link to="/signup">Sign up</Link></li>
-            <li><Link to="/login">Login</Link></li>
-          </ul>
-          <div className="collapse navbar-collapse">
-          </div>
+        <div className="user-account">
+          <Link className="page-scroll" to="/signup">Sign up</Link>
+          <Link className="page-scroll" to="/login">Login</Link>
         </div>
       </nav>
     );
