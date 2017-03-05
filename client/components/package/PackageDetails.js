@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { postPackageData } from '../../actions/packageActions';
 
 class PackageDetails extends React.Component {
   render() {
@@ -8,39 +9,52 @@ class PackageDetails extends React.Component {
     return (
       <div className = "panel panel-default">
         <div className = "panel-heading">
-          Grocery Store Details
+          Package Details
         </div>
 
         <div className = "panel-body">
-        <dl>
-          <dt>Pickup:</dt>
-          <dd>Some Store</dd>
-          <dt>Donation:</dt>
-          <dd>Some Shelter</dd>
-          <dt>Distance:</dt>
-          <dd>999 kilometers</dd>
-        </dl>
+          <dl>
+            <dt>Pickup:</dt>
+            <dd>Some Store</dd>
+            <dt>Donation:</dt>
+            <dd>Some Shelter</dd>
+            <dt>Distance:</dt>
+            <dd>999 kilometers</dd>
+          </dl>
+          <a href='/' name='cancel'>Cancel Package</a>
         </div>
+
+        <div className="panel-footer">
+          <button className="btn btn-primary btn-block" type="submit" onClick={this.props.sendPackages('data')}>Confirm</button>
         </div>
+      </div>
     );
   }
 }
 
-// const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
+  packages: state.packages
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  sendPackages(data) {
+    return () => dispatch(postPackageData(data));
+  }
+});
 
 //   const store = state.groceries[0].find(x=> x.id === state.selectedStore);
 
 //   return { store };
 // }
 
-// PackageForm.propTypes = {
-//   getPackageData: React.PropTypes.func.isRequired
+// PackageDetails.propTypes = {
+//   postPackageData: React.PropTypes.func.isRequired
 // }
 
-PackageDetails.contextTypes = {
-  router: React.PropTypes.object.isRequired
-}
+// PackageDetails.contextTypes = {
+//   router: React.PropTypes.object.isRequired
+// }
 
-export default connect(null)(PackageDetails);
+export default connect(null, mapDispatchToProps)(PackageDetails);
 
 // export default connect(PackageDetails);

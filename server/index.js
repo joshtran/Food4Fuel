@@ -14,6 +14,7 @@ import groceries from './routes/groceries';
 import packages from './routes/packages';
 import shelters from './routes/shelters';
 import boxes from './routes/boxes';
+import shelter_form from './routes/ShelterForm';
 import notifications from './routes/notifications';
 
 import { getAllPackages } from './models/package';
@@ -21,6 +22,7 @@ import { getAllGroceries } from './models/grocery';
 import { getAllShelters } from './models/shelter'
 import { getAllBoxes } from './models/box';
 import { getAllGroceryAvailabilities } from './models/groceryAvailability';
+import { deliveryValidate } from './models/shelter-form';
 
 let app = express();
 
@@ -32,6 +34,7 @@ app.use('/api/auth', auth);
 app.use('/api/events', events);
 app.use('/api/groceries', groceries);
 app.use('/api/package', packages);
+app.use('/api/shelter-form', shelter_form);
 app.use('/api/shelters', shelters);
 app.use('/api/boxes', boxes);
 app.use('/api/notifications', notifications);
