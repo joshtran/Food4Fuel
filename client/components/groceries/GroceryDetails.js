@@ -5,18 +5,17 @@ import { setDeliveryGrocery } from '../../actions/currentDeliveryActions';
 
 class GroceryDetails extends React.Component {
 
-  //this way you don't need to bind 'this'
-  onClick() {
-    //TODO call action to update state with selected grocery
+  onClick(groceryId) {
+    this.props.selectDeliveryGrocery(groceryId)
     routeTo('/boxes');
   };
 
   render() {
-    if(!this.props.store) {
-      return <div>Pick a store</div>;
+    if(!this.props.grocery) {
+      return <div>Pick a grocery Store</div>;
     }
 
-    const { name, location, notes, phone_number } = this.props.store;
+    const { name, location, notes, phone_number, id } = this.props.grocery;
 
     return (
       <div className = "panel panel-default">
@@ -37,7 +36,7 @@ class GroceryDetails extends React.Component {
             <dt>Notes:</dt>
             <dd>{notes}</dd>
             <dt></dt>
-            <dd><button className="btn btn-primary btn-lg" onClick={this.onClick.bind(this)}>Next</button></dd>
+            <dd><button className="btn btn-primary btn-lg" onClick={() => this.onClick(id)}>Next</button></dd>
           </dl>
          </div>
       </div>
@@ -47,9 +46,17 @@ class GroceryDetails extends React.Component {
 
 const mapStateToProps = (state) => {
 
-  const store = state.groceries.find(x=> x.id === state.selectedGrocery);
+  const grocery = state.groceries.find(x=> x.id === state.selectedGrocery);
 
-  return { store };
+  return { grocery };
 }
 
-export default connect(mapStateToProps)(GroceryDetails);
+function mapDispatchToProps(dispatch) {
+  return {
+    selectDeliveryGrocery: (id) => {
+      return dispatch(setDeliveryGrocery(id));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GroceryDetails);
