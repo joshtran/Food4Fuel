@@ -1,0 +1,17 @@
+.business-header {
+    background-color: #eee2ca;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 550px;
+    padding-top: 50px;
+}
+
+#landingNav {
+  background-color: #eee2ca;
+  border: 0;
+  color: #000;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+

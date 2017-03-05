@@ -10,6 +10,7 @@ import jwtDecode from 'jwt-decode';
 import { setCurrentUser } from './actions/authActions';
 
 require("./styles/application.css");
+require("./styles/landing.css");
 
 import routes from './routes';
 

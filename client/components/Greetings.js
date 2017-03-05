@@ -8,7 +8,8 @@ class Greetings extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <h1 className="tagline">OUR TAGLINE</h1>
+                <h2>Help us reduce food waste.</h2>
+                <h2> And get some fuel points while you're at it.</h2>
               </div>
             </div>
           </div>
