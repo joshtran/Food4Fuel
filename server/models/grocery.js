@@ -1,7 +1,10 @@
 import bookshelf from '../bookshelf';
 
 const Grocery = bookshelf.Model.extend({
-  tableName: 'grocery'
+  tableName: 'grocery',
+  boxes: function() {
+    return this.hasMany(Boxes);
+  }
 });
 
 export default Grocery;
