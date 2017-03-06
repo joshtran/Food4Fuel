@@ -12,24 +12,25 @@ export function setDeliveryShelter(shelterId) {
     type: ADD_DELIVERY_SHELTER,
     payload: shelterId
   };
+}
 
 export function allProduce(produce) {
   return {
     type: ADD_DELIVERY_PRODUCE,
     payload: produce
-  }
+  };
 }
 
 export function allDairy(dairy) {
   return {
     type: ADD_DELIVERY_DAIRY,
     payload: dairy
-  }
+  };
 }
 
 export function allBakedGoods(bakedGoods) {
   return {
     type: ADD_DELIVERY_BAKED_GOODS,
     payload: bakedGoods
-  }
+  };
 }
