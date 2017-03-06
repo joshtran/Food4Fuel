@@ -1,7 +1,8 @@
 import { ADD_DELIVERY_GROCERY } from '../actions/types';
 
 const initialState = {
-  deliveryGrocery: false
+  deliveryGrocery: false,
+  deliveryShelter: false
 };
 
 export default (state = initialState, { type, payload }) => {
