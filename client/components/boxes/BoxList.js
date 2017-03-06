@@ -71,7 +71,7 @@ class BoxList extends React.Component {
     return (
       <div>
         <div className="col-md-4">
-          <div className="panel panel-default">
+          <div className="box-panel panel panel-default">
             <div className = "panel-heading text-center">
               {this.props.type}
             </div>

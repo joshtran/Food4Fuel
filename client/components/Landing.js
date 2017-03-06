@@ -43,7 +43,7 @@ class Greetings extends React.Component {
           <div className="row">
             <div className="col-sm-4">
               <h2>Pick up surplus food</h2>
-              <p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold.</p>
+              <p>These marketing boxes are a great place to put some information. These can contain summaries of what the company does, promotional information, or anything else that is relevant to the company. These will usually be below-the-fold. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
             </div>
             <div className="col-sm-4">
               <h2>Deliver the goods to those in need</h2>

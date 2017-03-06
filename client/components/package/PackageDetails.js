@@ -50,7 +50,11 @@ class PackageDetails extends React.Component {
         </div>
 
         <div className="panel-footer">
-          <button className="btn btn-primary btn-block" type="submit" onClick={this.props.sendPackages('data')}>Confirm</button>
+          <button className="btn btn-primary btn-block" type="submit"
+            onClick={this.props.sendPackages({
+              shelter: this.props.deliveryShelter,
+              user: this.props.auth.user.id
+            })}>Confirm</button>
         </div>
       </div>
     );
@@ -58,7 +62,13 @@ class PackageDetails extends React.Component {
 }
 
 
+PackageDetails.propTypes = {
+  auth: React.PropTypes.object.isRequired
+}
+
+
 const mapStateToProps = (state) => ({
+  auth: state.auth,
   packages: state.packages,
   groceries: state.groceries,
   shelters: state.shelters,
@@ -72,6 +82,7 @@ const mapDispatchToProps = (dispatch) => ({
     return () => dispatch(postPackageData(data));
   }
 });
+
 
 //   const store = state.groceries[0].find(x=> x.id === state.selectedStore);
 
