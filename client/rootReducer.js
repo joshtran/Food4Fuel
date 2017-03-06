@@ -8,6 +8,9 @@ import groceries from './reducers/groceries';
 import shelters from './reducers/shelters';
 import boxes from './reducers/boxes';
 import currentDelivery from './reducers/currentDelivery';
+import produceReducer from './reducers/produceReducer';
+import dairyReducer from './reducers/dairyReducer';
+import bakedGoodsReducer from './reducers/bakedGoodsReducer';
 
 export default combineReducers({
   flashMessages,
@@ -17,5 +20,8 @@ export default combineReducers({
   shelters,
   selectedShelter,
   boxes,
-  currentDelivery
+  currentDelivery,
+  produce: produceReducer,
+  dairy: dairyReducer,
+  bakedGoods: bakedGoodsReducer
 });
