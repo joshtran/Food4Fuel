@@ -95,7 +95,7 @@ class BoxList extends React.Component {
             <div className = "panel-heading text-center">
               {this.props.type}
             </div>
-            <img src={this.imageType(this.props.type)} alt="Box Image"/>
+            <img className="panel-img" src={this.imageType(this.props.type)} alt="Box Image"/>
             <div className = "panel-body">
               <dl>
                 <dt>Boxes Available:</dt>
