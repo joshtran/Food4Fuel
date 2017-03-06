@@ -11,7 +11,7 @@ class BoxList extends React.Component {
     this.decrement = this.decrement.bind(this);
     this.productType = this.productType.bind(this);
   }
-  
+
   boxQuantity(boxes, boxType, groceryId) {
     let availableBoxes = boxes.filter(box => {
       if (box.type === this.props.type && this.props.groceryId === box.grocery_id && box.package_id === null) {
@@ -21,7 +21,7 @@ class BoxList extends React.Component {
     return availableBoxes.length
   }
 
-  increment() {    
+  increment() {
     if (this.props.type === 'Produce'){
       this.props.actions.incrementProduce();
     }else if (this.props.type === 'Dairy') {
@@ -55,15 +55,27 @@ class BoxList extends React.Component {
     }
   }
 
+  imageType (type) {
+    if (type === "Produce") {
+      return "/pictures/boxes/produce-graphic.png";
+    } else if (type === "Dairy") {
+      return "/pictures/boxes/dairy-graphic.png";
+    } else {
+      return "/pictures/boxes/baked-goods-graphic.png";
+    }
+  }
+
   render() {
+
+
     return (
       <div>
         <div className="col-md-4">
-          <div className="panel panel-default">
+          <div className="box-panel panel panel-default">
             <div className = "panel-heading text-center">
               {this.props.type}
             </div>
-            <img className="panel-img" src="http://placehold.it/950x650" alt="Box Image"/>
+            <img src={this.imageType(this.props.type)} alt="Box Image"/>
             <div className = "panel-body">
               <dl>
                 <dt>Boxes Available:</dt>

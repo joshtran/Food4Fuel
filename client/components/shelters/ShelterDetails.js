@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { routeTo } from '../../routes';
 import { setDeliveryShelter } from '../../actions/currentDeliveryActions';
 
+
 class ShelterDetails extends React.Component {
 
   onClick(shelterId) {

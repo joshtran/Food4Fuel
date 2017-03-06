@@ -1,12 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sendNotification } from '../../actions/dashboardActions';
 
 class DashboardMain extends React.Component {
-
-  componentDidMount() {
-    this.props.sendNotification();
-  }
 
   render() {
     return (
@@ -18,5 +13,5 @@ class DashboardMain extends React.Component {
 }
 
 
-export default connect(null, { sendNotification })(DashboardMain);
+export default connect(null)(DashboardMain);
 
