@@ -1,7 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { routeTo } from '../../routes';
+import { bindActionCreators } from 'redux';
+import * as actions from '../../actions/currentDeliveryActions';
 
 class BoxDetails extends React.Component {
+
+  onClick() {
+    console.log('onClick hit');
+    console.log('this.props.produce', this.props.produce);
+    this.props.actions.allProduce(this.props.produce);
+    this.props.actions.allDairy(this.props.dairy);
+    this.props.actions.allBakedGoods(this.props.bakedGoods)
+    routeTo('/shelters');
+  };
+
   render() {
     return (
       <div className = "panel panel-default">
@@ -17,6 +30,8 @@ class BoxDetails extends React.Component {
             <dd>{this.props.dairy}</dd>
             <dt>Pastry:</dt>
             <dd>{this.props.bakedGoods}</dd>
+            <dt></dt>
+            <dd><button className="btn btn-primary btn-lg" onClick={() => this.onClick()}>Next</button></dd>
           </dl>
          </div>
       </div>
@@ -30,4 +45,8 @@ const mapStateToProps = (state) => ({
   bakedGoods: state.bakedGoods
 });
 
-export default connect(mapStateToProps)(BoxDetails);
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(actions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoxDetails);
