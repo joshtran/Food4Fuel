@@ -5,7 +5,6 @@ let initialState = {
 };
 
 export default (state = initialState.produce, action) => {
-  console.log('produce reducer hit');
   switch(action.type) {
     case INCREMENT_PRODUCE:
       return state + 1;

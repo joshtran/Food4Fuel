@@ -1,4 +1,4 @@
-import { INCREMENT_PRODUCE, DECREMENT_PRODUCE, INCREMENT_DAIRY, DECREMENT_DAIRY, INCREMENT_BAKED_GOODS, DECREMENT_BAKED_GOODS } from './types';
+import { INCREMENT_PRODUCE, DECREMENT_PRODUCE, INCREMENT_DAIRY, DECREMENT_DAIRY, INCREMENT_BAKED_GOODS, DECREMENT_BAKED_GOODS, ALL } from './types';
 
 export function incrementProduce() {
   console.log('action creator hit');
@@ -36,3 +36,9 @@ export function decrementBakedGoods() {
         type: DECREMENT_BAKED_GOODS
     }
 }
+
+// export function all() {
+//     return {
+//         type: ALL
+//     }
+// }
