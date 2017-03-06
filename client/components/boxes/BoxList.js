@@ -14,7 +14,7 @@ class BoxList extends React.Component {
   
   boxQuantity(boxes, boxType, groceryId) {
     let availableBoxes = boxes.filter(box => {
-      if (box.type === this.props.type && groceryId === box.grocery_id && box.package_id === null) {
+      if (box.type === this.props.type && this.props.groceryId === box.grocery_id && box.package_id === null) {
         return box;
       }
     });
@@ -88,7 +88,7 @@ class BoxList extends React.Component {
 
 const mapStateToProps = (state) => ({
   boxes: state.boxes,
-  groceryId: state.groceryId,
+  groceryId: state.selectedGrocery,
   produce: state.produce,
   dairy: state.dairy,
   bakedGoods: state.bakedGoods
