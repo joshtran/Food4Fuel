@@ -14,7 +14,7 @@ class BoxList extends React.Component {
   
   boxQuantity(boxes, boxType, groceryId) {
     let availableBoxes = boxes.filter(box => {
-      if (box.type === this.props.type && groceryId === box.grocery_id && box.package_id === null) {
+      if (box.type === this.props.type && this.props.groceryId === box.grocery_id && box.package_id === null) {
         return box;
       }
     });
@@ -32,14 +32,18 @@ class BoxList extends React.Component {
   }
 
   decrement() {
-    if (this.props.type === 'Produce'){
+    if (this.props.type === 'Produce' && this.props.produce > 0){
       this.props.actions.decrementProduce();
-    }else if (this.props.type === 'Dairy') {
+    }else if (this.props.type === 'Dairy' && this.props.dairy > 0) {
       this.props.actions.decrementDairy();
-    }else if (this.props.type === 'Baked Goods') {
+    }else if (this.props.type === 'Baked Goods' && this.props.bakedGoods > 0) {
       this.props.actions.decrementBakedGoods();
     }
   }
+
+  // all() {
+  //   return this.boxQuantity(this.props.boxes, this.props.type, this.props.groceryId)
+  // }
 
   productType() {
     if(this.props.type === 'Produce'){
@@ -74,7 +78,7 @@ class BoxList extends React.Component {
               <div className="text-center">
                 <div className="btn-group" role="group" aria-label="...">
                   <button type="button" className="btn btn-default" onClick={this.decrement}>-</button>
-                  <button type="button" className="btn btn-default">All</button>
+                  <button type="button" className="btn btn-default" >All</button>
                   <button type="button" className="btn btn-default" onClick={this.increment}>+</button>
                 </div>
               </div>
@@ -88,7 +92,7 @@ class BoxList extends React.Component {
 
 const mapStateToProps = (state) => ({
   boxes: state.boxes,
-  groceryId: state.groceryId,
+  groceryId: state.selectedGrocery,
   produce: state.produce,
   dairy: state.dairy,
   bakedGoods: state.bakedGoods
