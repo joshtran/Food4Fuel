@@ -1,8 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { routeTo } from '../../routes';
 
 
 class ShelterDetails extends React.Component {
+
+  onClick() {
+    routeTo('/package');
+  };
+
   render() {
     if(!this.props.shelter) {
       return <div>Pick a shelter</div>;
@@ -29,6 +35,9 @@ class ShelterDetails extends React.Component {
             <dt>Notes:</dt>
             <dd>{notes}</dd>
           </dl>
+         </div>
+         <div className = "panel-footer">
+          <button className="btn btn-primary btn-block" onClick={() => this.onClick()}>Next</button>
          </div>
       </div>
     );

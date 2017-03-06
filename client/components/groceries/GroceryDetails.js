@@ -36,8 +36,10 @@ class GroceryDetails extends React.Component {
             <dt>Notes:</dt>
             <dd>{notes}</dd>
             <dt></dt>
-            <dd><button className="btn btn-primary btn-lg" onClick={() => this.onClick(id)}>Next</button></dd>
           </dl>
+         </div>
+         <div className = "panel-footer">
+          <button className="btn btn-primary btn-block" onClick={() => this.onClick(id)}>Next</button>
          </div>
       </div>
     );
