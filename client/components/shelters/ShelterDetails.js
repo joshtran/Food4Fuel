@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { routeTo } from '../../routes';
+import { setDeliveryShelter } from '../../actions/currentDeliveryActions';
 
 
 class ShelterDetails extends React.Component {
 
-  onClick() {
+  onClick(shelterId) {
+    this.props.selectDeliveryShelter(shelterId);
     routeTo('/package');
   };
 
@@ -14,7 +16,7 @@ class ShelterDetails extends React.Component {
       return <div>Pick a shelter</div>;
     }
 
-    const { name, location, notes, phone_number } = this.props.shelter;
+    const { name, location, notes, phone_number, id } = this.props.shelter;
 
     return (
       <div className = "panel panel-default">
@@ -37,7 +39,7 @@ class ShelterDetails extends React.Component {
           </dl>
          </div>
          <div className = "panel-footer">
-          <button className="btn btn-primary btn-block" onClick={() => this.onClick()}>Next</button>
+          <button className="btn btn-primary btn-block" onClick={() => this.onClick(id)}>Next</button>
          </div>
       </div>
     );
@@ -51,4 +53,12 @@ const mapStateToProps = (state) => {
   return { shelter };
 }
 
-export default connect(mapStateToProps)(ShelterDetails);
+function mapDispatchToProps(dispatch) {
+  return {
+    selectDeliveryShelter: (id) => {
+      return dispatch(setDeliveryShelter(id));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShelterDetails);
