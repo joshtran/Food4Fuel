@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute, browserHistory } from 'react-router';
 import App from './components/App';
-import Greetings from './components/Greetings';
+import Landing from './components/Landing';
 import SignupPage from './components/signup/SignupPage';
 import LoginPage from './components/login/LoginPage';
 import NewEventPage from './components/events/NewEventPage';
@@ -20,7 +20,7 @@ export const routeTo = (route) => {
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={Greetings} />
+    <IndexRoute component={Landing} />
     <Route path="signup" component={SignupPage} />
     <Route path="login" component={LoginPage} />
     <Route path="package" component={PackagePage} />

@@ -9,7 +9,7 @@ import setAuthorizationToken from './utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 import { setCurrentUser } from './actions/authActions';
 
-require("./styles/application.css");
+require("./styles/application.scss");
 
 import routes from './routes';
 

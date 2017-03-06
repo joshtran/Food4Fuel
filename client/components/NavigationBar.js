@@ -7,35 +7,40 @@ class NavigationBar extends React.Component {
   logout(e) {
     e.preventDefault();
     this.props.logout();
+    this.context.router.push('/')
   }
 
   render() {
     const { isAuthenticated } = this.props.auth;
-    const userLinks = (
-      <ul className="nav navbar-nav navbar-right">
-        <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li>
-      </ul>
-    );
 
-    const guestLinks = (
-      <ul className="nav navbar-nav navbar-right">
-        <li><Link to="/signup">Sign up</Link></li>
-        <li><Link to="/login">Login</Link></li>
-      </ul>
-    );
-
-    return (
+    const userNav = (
       <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container-fluid">
           <div className="navbar-header">
             <Link to="/" className="navbar-brand">Food4Fuel</Link>
           </div>
-
+          <ul className="nav navbar-nav navbar-right">
+            <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li>
+          </ul>
           <div className="collapse navbar-collapse">
-            { isAuthenticated ? userLinks : guestLinks }
           </div>
         </div>
       </nav>
+    );
+
+    const guestNav = (
+      <nav id="landingNav" className="navbar navbar-fixed-top">
+        <div className="user-account">
+          <Link className="page-scroll" to="/signup">Sign up</Link>
+          <Link className="page-scroll" to="/login">Login</Link>
+        </div>
+      </nav>
+    );
+
+    return (
+      <div>
+      { isAuthenticated ? userNav : guestNav }
+      </div>
     );
   }
 }
@@ -43,6 +48,10 @@ class NavigationBar extends React.Component {
 NavigationBar.propTypes = {
   auth: React.PropTypes.object.isRequired,
   logout: React.PropTypes.func.isRequired
+}
+
+NavigationBar.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
