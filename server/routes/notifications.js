@@ -12,6 +12,7 @@ let shelterPhone = process.env.TEST_PHONE2;
 let phoneNumbers = [groceryPhone, shelterPhone];
 
 router.get('/', (req, res) => {
+  console.log("reached notifications.js");
 
   phoneNumbers.forEach(function(phoneNumber){
 

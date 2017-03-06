@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { routeTo } from '../../routes';
 import { postPackageData } from '../../actions/packageActions';
+
 
 class PackageDetails extends React.Component {
 
@@ -62,6 +64,8 @@ class PackageDetails extends React.Component {
 }
 
 
+
+
 PackageDetails.propTypes = {
   auth: React.PropTypes.object.isRequired
 }
@@ -79,6 +83,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   sendPackages(data) {
+    console.log("data in map dispatch/props", data);
     return () => dispatch(postPackageData(data));
   }
 });
