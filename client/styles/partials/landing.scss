@@ -1,8 +1,45 @@
-.masthead {
+#landingNav {
   background-color: #f8e9d6;
+  border: 0;
+  color: #000;
+  padding: 20px 20px 0 0;
+  .user-account {
+    float: right;
+  }
+}
+
+#landingNav a:link {
+  color: #000;
+  padding-left: $default-padding;
+}
+
+#landingNav a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.landing-footer {
+  background-color: #eae9e9;
+  background-size: cover;
+  min-height: 500px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
+  -o-background-size: cover;
+  padding: 300px 0 0 0;
+  text-align: center;
+
+  button {
+    border-radius: 0;
+    background-color: tomato;
+    color: #fff;
+  }
+}
+
+.masthead {
+  background-color: #f8e9d6;
   background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
   -o-background-size: cover;
   height: 550px;
   padding: 50px 0 0 0;
@@ -33,24 +70,12 @@
   }
 }
 
-#landingNav {
-  background-color: #f8e9d6;
-  border: 0;
-  color: #000;
-  padding: 20px 20px 0 0;
-  .user-account {
-    float: right;
+.overview {
+  padding-top:50px;
+
+  .heading {
+    text-align: center;
   }
-}
-
-#landingNav a:link {
-  color: #000;
-  padding-left: $default-padding;
-}
-
-#landingNav a:hover {
-  color: #000;
-  text-decoration: none;
 }
 
 
