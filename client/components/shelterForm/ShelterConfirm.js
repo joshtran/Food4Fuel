@@ -1,8 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { postDeliveredAt } from '../../actions/shelterConfirmActions';
+import { routeTo } from '../../routes';
+import TextFieldGroup from '../common/TextFieldGroup';
+import { addFlashMessage } from '../../actions/flashMessages.js';
 
 class ShelterForm extends React.Component {
+
+  onClick() {
+    this.props.validateDelivery();
+    routeTo('/');
+    this.props.addFlashMessage({
+      type: 'success',
+      text: 'Message received!'
+    });
+  }
+
   render() {
     return(
       <div>
@@ -32,26 +45,31 @@ class ShelterForm extends React.Component {
             </tr>
           </tbody>
         </table>
-        <button className="btn btn-primary btn-outline" type="submit" onClick={this.props.validateDelivery('data')}>
-          Validate Delivery
+        <button className="btn btn-primary btn-outline" type="submit" onClick={() => this.onClick()}>
+          Package Arrived!
         </button>
       </div>
     );
   }
 }
 
-// ShelterForm.contextTypes = {
-//   router: React.PropTypes.object.isRequired
-// }
+ShelterForm.propTypes = {
+  addFlashMessage: React.PropTypes.func.isRequired
+}
 
 const mapStateToProps = (state) => {
   packages: state.packages
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  validateDelivery(data) {
-    return () => dispatch(postDeliveredAt(data));
+function mapDispatchToProps(dispatch){
+  return {
+    validateDelivery: (data) => {
+      return dispatch(postDeliveredAt(data)).then(() => {
+        // alert('message sent');
+      });
+    }
   }
-});
+}
+
 
 export default connect(null, mapDispatchToProps)(ShelterForm);

@@ -9,6 +9,7 @@ export function retrievePackages(packages) {
 }
 
 export function postPackageData(data) {//data) {
+  console.log("reaching package action");
   return dispatch => {
     return axios.post('/api/package', data) //, data)
     .then(res => {
@@ -22,6 +23,9 @@ export function postPackageData(data) {//data) {
       // return packageArray;
       // dispatch({ type: 'packages', payload: })
       // res.data.forEach(p => dispatch(setPackage(p)));
+      axios.get('/api/notifications');
     })
   }
 }
+
+

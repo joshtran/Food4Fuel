@@ -5,9 +5,3 @@ const ShelterForm = bookshelf.Model.extend({
 });
 
 export default ShelterForm;
-
-// export function deliveryValidate(data) {
-//   return ShelterForm.add({ // was `.forge`
-//     delivered_at: new Date().toISOString()
-//   }, { hasTimeStamps: true }).save()
-// }

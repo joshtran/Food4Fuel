@@ -10,56 +10,92 @@ class BoxList extends React.Component {
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
     this.productType = this.productType.bind(this);
+    this.all = this.all.bind(this);
   }
-  
+
   boxQuantity(boxes, boxType, groceryId) {
     let availableBoxes = boxes.filter(box => {
-      if (box.type === this.props.type && groceryId === box.grocery_id && box.package_id === null) {
+      if (box.type === this.props.type && this.props.groceryId === box.grocery_id && box.package_id === null) {
         return box;
       }
     });
     return availableBoxes.length
   }
 
-  increment() {    
-    if (this.props.type === 'Produce'){
-      this.props.actions.incrementProduce();
-    }else if (this.props.type === 'Dairy') {
-      this.props.actions.incrementDairy();
-    }else if (this.props.type === 'Baked Goods') {
-      this.props.actions.incrementBakedGoods();
+  increment() {
+    let quantity = this.boxQuantity(this.props.boxes, this.props.type, this.props.groceryId);
+    let type = this.props.type;
+    let actions = this.props.actions;
+
+    if (type === 'Produce' && this.props.produce < quantity){
+      actions.incrementProduce();
+    }else if (type === 'Dairy' && this.props.dairy < quantity) {
+      actions.incrementDairy();
+    }else if (type === 'Baked Goods' && this.props.bakedGoods < quantity) {
+      actions.incrementBakedGoods();
     }
   }
 
   decrement() {
-    if (this.props.type === 'Produce'){
-      this.props.actions.decrementProduce();
-    }else if (this.props.type === 'Dairy') {
-      this.props.actions.decrementDairy();
-    }else if (this.props.type === 'Baked Goods') {
-      this.props.actions.decrementBakedGoods();
+    let type = this.props.type;
+    let actions = this.props.actions;
+
+    if (type === 'Produce' && this.props.produce > 0){
+      actions.decrementProduce();
+    }else if (type === 'Dairy' && this.props.dairy > 0) {
+      actions.decrementDairy();
+    }else if (type === 'Baked Goods' && this.props.bakedGoods > 0) {
+      actions.decrementBakedGoods();
+    }
+  }
+
+  all() {
+    let quantity = this.boxQuantity(this.props.boxes, this.props.type, this.props.groceryId);
+    let type = this.props.type;
+    let actions = this.props.actions;
+
+    if (type === 'Produce') {
+      actions.allProduce(quantity - this.props.produce)
+    } else if (type === 'Dairy') {
+      actions.allDairy(quantity - this.props.dairy)
+    } else if (type === 'Baked Goods') {
+      actions.allBakedGoods(quantity - this.props.bakedGoods)
     }
   }
 
   productType() {
-    if(this.props.type === 'Produce'){
+    let type = this.props.type;
+    
+    if(type === 'Produce'){
       return this.props.produce
-    } else if(this.props.type === 'Dairy'){
+    } else if(type === 'Dairy'){
       return this.props.dairy
-    } else if(this.props.type === 'Baked Goods'){
+    } else if(type === 'Baked Goods'){
       return this.props.bakedGoods
     }
   }
 
+  imageType (type) {
+    if (type === "Produce") {
+      return "/pictures/boxes/produce-graphic.png";
+    } else if (type === "Dairy") {
+      return "/pictures/boxes/dairy-graphic.png";
+    } else {
+      return "/pictures/boxes/baked-goods-graphic.png";
+    }
+  }
+
   render() {
+
+
     return (
       <div>
         <div className="col-md-4">
-          <div className="panel panel-default">
+          <div className="box-panel panel panel-default">
             <div className = "panel-heading text-center">
               {this.props.type}
             </div>
-            <img className="panel-img" src="http://placehold.it/950x650" alt="Box Image"/>
+            <img className="panel-img" src={this.imageType(this.props.type)} alt="Box Image"/>
             <div className = "panel-body">
               <dl>
                 <dt>Boxes Available:</dt>
@@ -74,7 +110,7 @@ class BoxList extends React.Component {
               <div className="text-center">
                 <div className="btn-group" role="group" aria-label="...">
                   <button type="button" className="btn btn-default" onClick={this.decrement}>-</button>
-                  <button type="button" className="btn btn-default">All</button>
+                  <button type="button" className="btn btn-default" onClick={this.all}>All</button>
                   <button type="button" className="btn btn-default" onClick={this.increment}>+</button>
                 </div>
               </div>
@@ -88,7 +124,7 @@ class BoxList extends React.Component {
 
 const mapStateToProps = (state) => ({
   boxes: state.boxes,
-  groceryId: state.groceryId,
+  groceryId: state.selectedGrocery,
   produce: state.produce,
   dairy: state.dairy,
   bakedGoods: state.bakedGoods
