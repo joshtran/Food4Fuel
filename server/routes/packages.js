@@ -4,7 +4,6 @@ import express from 'express';
 const router = new express.Router();
 
 router.post('/', (req, res) => {
-  console.log('inside routes/packages.js\n');
   insertPackages(req.body).then(x => res.json(x));
 })
 
