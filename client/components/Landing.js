@@ -1,14 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router';
+import { connect } from 'react-redux';
 
 class Greetings extends React.Component {
+
+  componentDidMount() {
+    const { isAuthenticated } = this.props.auth;
+    if (isAuthenticated) {
+      this.context.router.push('/groceries');
+    }
+  }
+
   render() {
     return (
       <div>
-        <header className="business-header">
+        <header className="masthead">
           <div className="container">
             <div className="row">
-              <div className="col-lg-12">
-                <h1 className="tagline">OUR TAGLINE</h1>
+              <div className="tag-line col-lg-12">
+                <h2>Help reduce food waste. Earn some points while you're at it.</h2>
+              </div>
+              <div className="row">
+              <div className="image-container col-lg-12">
+                <img className="masthead-image" src="/pictures/landing/food-graphic.png" />
+                <img className="masthead-image" src="/pictures/landing/food-graphic2.png" />
+                <img className="masthead-image" src="/pictures/landing/food-graphic3.png" />
+              </div>
               </div>
             </div>
           </div>
@@ -55,4 +72,18 @@ class Greetings extends React.Component {
   }
 }
 
-export default Greetings;
+Greetings.propTypes = {
+  auth: React.PropTypes.object.isRequired,
+}
+
+Greetings.contextTypes = {
+  router: React.PropTypes.object.isRequired
+}
+
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+
+export default connect(mapStateToProps)(Greetings);

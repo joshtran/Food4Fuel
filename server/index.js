@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+import sass from 'node-sass';
 
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
@@ -23,6 +24,7 @@ import { getAllShelters } from './models/shelter'
 import { getAllBoxes } from './models/box';
 import { getAllGroceryAvailabilities } from './models/groceryAvailability';
 import { deliveryValidate } from './models/ShelterForm';
+
 
 let app = express();
 
