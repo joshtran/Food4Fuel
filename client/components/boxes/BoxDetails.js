@@ -18,10 +18,10 @@ class BoxDetails extends React.Component {
   render() {
     return (
       <div className = "panel panel-default">
-         <div className = "panel-heading">
+        <div className = "panel-heading">
           Box Details
-         </div>
-         <div className = "panel-body">
+        </div>
+        <div className = "panel-body">
           <dl>
             <dt>Produce:</dt>
             <dd>{this.props.produce}</dd>
@@ -30,9 +30,11 @@ class BoxDetails extends React.Component {
             <dt>Pastry:</dt>
             <dd>{this.props.bakedGoods}</dd>
             <dt></dt>
-            <dd><button className="btn btn-primary btn-lg" onClick={() => this.onClick()}>Next</button></dd>
           </dl>
-         </div>
+        </div>
+        <div className = "panel-footer">
+          <button className="btn btn-primary btn-block" onClick={() => this.onClick()}>Next</button>
+        </div>
       </div>
     );
   }
