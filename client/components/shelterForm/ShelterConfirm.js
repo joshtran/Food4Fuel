@@ -2,13 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { postDeliveredAt } from '../../actions/shelterConfirmActions';
 import { routeTo } from '../../routes';
+import TextFieldGroup from '../common/TextFieldGroup';
+import { addFlashMessage } from '../../actions/flashMessages.js';
 
 class ShelterForm extends React.Component {
 
   onClick() {
     this.props.validateDelivery();
     routeTo('/');
-  };
+    this.props.addFlashMessage({
+      type: 'success',
+      text: 'Message received!'
+    });
+  }
 
   render() {
     return(
@@ -47,9 +53,9 @@ class ShelterForm extends React.Component {
   }
 }
 
-// ShelterForm.contextTypes = {
-//   router: React.PropTypes.object.isRequired
-// }
+ShelterForm.propTypes = {
+  addFlashMessage: React.PropTypes.func.isRequired
+}
 
 const mapStateToProps = (state) => {
   packages: state.packages
@@ -59,7 +65,7 @@ function mapDispatchToProps(dispatch){
   return {
     validateDelivery: (data) => {
       return dispatch(postDeliveredAt(data)).then(() => {
-        alert('message sent');
+        // alert('message sent');
       });
     }
   }

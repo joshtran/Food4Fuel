@@ -1,5 +1,4 @@
 import React from 'react';
-import timezones from '../../data/timezones';
 import map from 'lodash/map';
 import classnames from 'classnames';
 import validateInput from '../../../server/shared/validations/signup';
@@ -78,9 +77,6 @@ class SignupForm extends React.Component {
 
   render() {
     const { errors } = this.state;
-    // const options = map(timezones, (val, key) =>
-    //   <option key={val} value={val}>{key}</option>
-    // );
     return (
       <form onSubmit={this.onSubmit}>
         <h1>Join our community!</h1>
@@ -149,7 +145,5 @@ SignupForm.propTypes = {
 SignupForm.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
-
-// export default SignupForm;
 
 export default connect(null, { login })(SignupForm);
