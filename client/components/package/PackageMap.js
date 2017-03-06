@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 class PackageMap extends React.Component {
 
   componentDidMount() {
+    let groceryAddress = deliveryDetails("location", this.props.groceries, this.props.deliveryGrocery);
+    let shelterAddress = deliveryDetails("location", this.props.shelters, this.props.deliveryShelter);
 
-    let self = this;
     loadScript("https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyByH0c5bxYDZ48BLQ401BBsm4DppG6QNkQ", function() {
       var directionsService = new google.maps.DirectionsService;
       var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -17,8 +18,8 @@ class PackageMap extends React.Component {
 
       directionsDisplay.setMap(map);
       directionsService.route({
-        origin: "909 Burrard Str",
-        destination: "188 E 1st Ave Vancouver BC",
+        origin: groceryAddress + ", Vancouver BC",
+        destination: shelterAddress + ", Vancouver BC",
         travelMode: 'DRIVING',
         provideRouteAlternatives: true
       }, function(response, status) {
@@ -43,7 +44,14 @@ class PackageMap extends React.Component {
   }
 }
 
-export default connect(null)(PackageMap);
+const mapStateToProps = (state) => ({
+  groceries: state.groceries,
+  shelters: state.shelters,
+  deliveryGrocery: state.currentDelivery.deliveryGrocery,
+  deliveryShelter: state.currentDelivery.deliveryShelter
+});
+
+export default connect(mapStateToProps)(PackageMap);
 
 
 function loadScript(url, callback) {
@@ -60,3 +68,13 @@ function loadScript(url, callback) {
     // Append script tag
     head.appendChild(script);
 }
+
+function deliveryDetails(infoType, businessType, deliveryId) {
+    var result;
+    businessType.forEach(business => {
+      if (business.id === deliveryId) {
+        result = business[infoType];
+      }
+    });
+    return result;
+  }

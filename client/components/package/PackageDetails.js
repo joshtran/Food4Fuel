@@ -18,14 +18,10 @@ class PackageDetails extends React.Component {
     let boxes = 0;
     for (let key in currentPackage) {
       if (key === "produce" || key === "dairy" || key === "bakedGoods") {
-        console.log("food hit");
         let numFoodType = currentPackage[key];
-        console.log("foodType", numFoodType);
         boxes += numFoodType;
-        console.log("boxes in loop", boxes);
       }
     }
-    console.log("boxes outsie loop", boxes);
     return boxes;
   }
 

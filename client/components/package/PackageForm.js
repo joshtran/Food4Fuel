@@ -12,7 +12,7 @@ class PackageForm extends React.Component {
   // }
 
   deliveryDetails(infoType, businessType, deliveryId) {
-    var result;
+    let result;
     businessType.forEach(business => {
       if (business.id === deliveryId) {
         result = business[infoType];
