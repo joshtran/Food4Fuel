@@ -7,11 +7,11 @@ import * as actions from '../../actions/currentDeliveryActions';
 class BoxDetails extends React.Component {
 
   onClick() {
-    console.log('onClick hit');
-    console.log('this.props.produce', this.props.produce);
-    this.props.actions.allProduce(this.props.produce);
-    this.props.actions.allDairy(this.props.dairy);
-    this.props.actions.allBakedGoods(this.props.bakedGoods)
+    let actions = this.props.actions;
+
+    actions.allProduce(this.props.produce);
+    actions.allDairy(this.props.dairy);
+    actions.allBakedGoods(this.props.bakedGoods)
     routeTo('/shelters');
   };
 
@@ -21,7 +21,6 @@ class BoxDetails extends React.Component {
          <div className = "panel-heading">
           Box Details
          </div>
-
          <div className = "panel-body">
           <dl>
             <dt>Produce:</dt>
