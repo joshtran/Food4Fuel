@@ -11,27 +11,39 @@ class PackageForm extends React.Component {
   //   this.props.getPackageData();
   // }
 
+  deliveryDetails(infoType, businessType, deliveryId) {
+    var result;
+    businessType.forEach(business => {
+      if (business.id === deliveryId) {
+        result = business[infoType];
+      }
+    });
+    return result;
+  }
+
   render() {
     return(
       <div className="col-md-12">
         <div className="panel panel-default">
           <div className="panel-heading">
-            Package
+            Delivery Details
           </div>
           <div className="panel-body">
             <dl>
-              <dt>You will be picking up from:</dt>
-              <dd>IGA</dd>
-              <dt>Your Contact at IGA:</dt>
-              <dd>Godby Prick Fiat</dd>
-              <dt>Pickup Notes:</dt>
-              <dd>Better git it in yer soul</dd>
-              <dt>You will be helping out:</dt>
-              <dd>Penelope Shelter</dd>
-              <dt>Your Contact at Penelope:</dt>
-              <dd>Tell 'em aigue</dd>
-              <dt>Pickup Notes:</dt>
-              <dd>“There is a time for many words, and there is also a time for sleep.”</dd>
+              <dt>Pickup Location:</dt>
+              <dd>{this.deliveryDetails("name", this.props.groceries, this.props.deliveryGrocery)}</dd>
+              <dd>{this.deliveryDetails("location", this.props.groceries, this.props.deliveryGrocery)}</dd>
+              <dt>Store phone:</dt>
+              <dd>{this.deliveryDetails("phone_number", this.props.groceries, this.props.deliveryGrocery)}</dd>
+              <dt>Special notes:</dt>
+              <dd>{this.deliveryDetails("notes", this.props.groceries, this.props.deliveryGrocery)}</dd>
+              <dt>Drop-off Location:</dt>
+              <dd>{this.deliveryDetails("name", this.props.shelters, this.props.deliveryShelter)}</dd>
+              <dd>{this.deliveryDetails("location", this.props.shelters, this.props.deliveryShelter)}</dd>
+              <dt>Shelter Phone:</dt>
+              <dd>{this.deliveryDetails("phone_number", this.props.shelters, this.props.deliveryShelter)}</dd>
+              <dt>Special notes:</dt>
+              <dd>{this.deliveryDetails("notes", this.props.shelters, this.props.deliveryShelter)}</dd>
             </dl>
           </div>
         </div>
@@ -48,4 +60,11 @@ PackageForm.contextTypes = {
   router: React.PropTypes.object.isRequired
 }
 
-export default connect(null, { postPackageData })(PackageForm);
+const mapStateToProps = (state) => ({
+  groceries: state.groceries,
+  shelters: state.shelters,
+  deliveryGrocery: state.currentDelivery.deliveryGrocery,
+  deliveryShelter: state.currentDelivery.deliveryShelter
+});
+
+export default connect(mapStateToProps, { postPackageData })(PackageForm);

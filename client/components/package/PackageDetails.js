@@ -3,6 +3,33 @@ import { connect } from 'react-redux';
 import { postPackageData } from '../../actions/packageActions';
 
 class PackageDetails extends React.Component {
+
+  deliveryDetails(infoType, businessType, deliveryId) {
+    let result;
+    businessType.forEach(business => {
+      if (business.id === deliveryId) {
+        result = business[infoType];
+      }
+    });
+    return result;
+  }
+
+  packageDetails(currentPackage) {
+    let boxes = 0;
+    for (let key in currentPackage) {
+      if (key === "produce" || key === "dairy" || key === "bakedGoods") {
+        console.log("food hit");
+        let numFoodType = currentPackage[key];
+        console.log("foodType", numFoodType);
+        boxes += numFoodType;
+        console.log("boxes in loop", boxes);
+      }
+    }
+    console.log("boxes outsie loop", boxes);
+    return boxes;
+  }
+
+
   render() {
     // const { store, shelter, distance } = this.props.store;
 
@@ -15,9 +42,11 @@ class PackageDetails extends React.Component {
         <div className = "panel-body">
           <dl>
             <dt>Pickup:</dt>
-            <dd>Some Store</dd>
+            <dd>{this.deliveryDetails("name", this.props.groceries, this.props.deliveryGrocery)}</dd>
             <dt>Donation:</dt>
-            <dd>Some Shelter</dd>
+            <dd>{this.deliveryDetails("name", this.props.shelters, this.props.deliveryShelter)}</dd>
+            <dt>Items in package:</dt>
+            <dd>{this.packageDetails(this.props.currentDelivery)}</dd>
             <dt>Distance:</dt>
             <dd>999 kilometers</dd>
           </dl>
@@ -32,9 +61,15 @@ class PackageDetails extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  packages: state.packages
-}
+
+const mapStateToProps = (state) => ({
+  packages: state.packages,
+  groceries: state.groceries,
+  shelters: state.shelters,
+  deliveryGrocery: state.currentDelivery.deliveryGrocery,
+  deliveryShelter: state.currentDelivery.deliveryShelter,
+  currentDelivery: state.currentDelivery
+});
 
 const mapDispatchToProps = (dispatch) => ({
   sendPackages(data) {
@@ -55,6 +90,8 @@ const mapDispatchToProps = (dispatch) => ({
 //   router: React.PropTypes.object.isRequired
 // }
 
-export default connect(null, mapDispatchToProps)(PackageDetails);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(PackageDetails);
 
 // export default connect(PackageDetails);
