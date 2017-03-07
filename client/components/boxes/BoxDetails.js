@@ -19,18 +19,23 @@ class BoxDetails extends React.Component {
     return (
       <div className = "panel panel-default">
         <div className = "panel-heading">
-          Box Details
+          Package Details
         </div>
         <div className = "panel-body">
-          <dl>
-            <dt>Produce:</dt>
-            <dd>{this.props.produce}</dd>
-            <dt>Dairy:</dt>
-            <dd>{this.props.dairy}</dd>
-            <dt>Pastry:</dt>
-            <dd>{this.props.bakedGoods}</dd>
-            <dt></dt>
-          </dl>
+          <ul className="list-group">
+            <li className="list-group-item">
+              <span className="badge">{this.props.produce}</span>
+              Produce
+            </li>
+            <li className="list-group-item">
+              <span className="badge">{this.props.dairy}</span>
+              Dairy
+            </li>
+            <li className="list-group-item">
+              <span className="badge">{this.props.bakedGoods}</span>
+              Baked Goods
+            </li>
+          </ul>
         </div>
         <div className = "panel-footer">
           <button className="btn btn-primary btn-block" onClick={() => this.onClick()}>Next</button>
