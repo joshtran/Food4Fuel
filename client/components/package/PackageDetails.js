@@ -6,6 +6,11 @@ import { postPackageData } from '../../actions/packageActions';
 
 class PackageDetails extends React.Component {
 
+onClick(data) {
+    this.props.sendPackages(data);
+    routeTo('/dashboard');
+  };
+
   deliveryDetails(infoType, businessType, deliveryId) {
     let result;
     businessType.forEach(business => {
@@ -53,7 +58,7 @@ class PackageDetails extends React.Component {
 
         <div className="panel-footer">
           <button className="btn btn-primary btn-block" type="submit"
-            onClick={this.props.sendPackages({
+            onClick={() => this.onClick({
               shelter: this.props.deliveryShelter,
               user: this.props.auth.user.id
             })}>Confirm</button>
@@ -63,13 +68,9 @@ class PackageDetails extends React.Component {
   }
 }
 
-
-
-
 PackageDetails.propTypes = {
   auth: React.PropTypes.object.isRequired
 }
-
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
@@ -81,12 +82,14 @@ const mapStateToProps = (state) => ({
   currentDelivery: state.currentDelivery
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  sendPackages(data) {
-    console.log("data in map dispatch/props", data);
-    return () => dispatch(postPackageData(data));
+function mapDispatchToProps(dispatch) {
+  return {
+    sendPackages: (data) => {
+      console.log("data in map dispatch/props", data);
+      return dispatch(postPackageData(data));
+    }
   }
-});
+}
 
 
 //   const store = state.groceries[0].find(x=> x.id === state.selectedStore);
