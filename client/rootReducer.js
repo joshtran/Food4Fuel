@@ -11,6 +11,8 @@ import currentDelivery from './reducers/currentDelivery';
 import produceReducer from './reducers/produceReducer';
 import dairyReducer from './reducers/dairyReducer';
 import bakedGoodsReducer from './reducers/bakedGoodsReducer';
+import redeemReducer from './reducers/redeemReducer';
+import pointsReducer from './reducers/pointsReducer';
 
 export default combineReducers({
   flashMessages,
@@ -23,5 +25,7 @@ export default combineReducers({
   currentDelivery,
   produce: produceReducer,
   dairy: dairyReducer,
-  bakedGoods: bakedGoodsReducer
+  bakedGoods: bakedGoodsReducer,
+  redeem: redeemReducer,
+  points: pointsReducer
 });
