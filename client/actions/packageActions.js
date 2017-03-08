@@ -18,7 +18,7 @@ export function postPackageData(data) {//data) {
       // return packageArray;
       // dispatch({ type: 'packages', payload: })
       // res.data.forEach(p => dispatch(setPackage(p)));
-      axios.get('/api/notifications');
+      // axios.get('/api/notifications');
     })
   }
 }
