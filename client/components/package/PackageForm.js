@@ -23,7 +23,7 @@ class PackageForm extends React.Component {
 
   render() {
     return(
-      <div className="col-md-12">
+
         <div className="panel panel-default">
           <div className="panel-heading">
             Delivery Details
@@ -47,7 +47,7 @@ class PackageForm extends React.Component {
             </dl>
           </div>
         </div>
-      </div>
+
     );
   }
 }
