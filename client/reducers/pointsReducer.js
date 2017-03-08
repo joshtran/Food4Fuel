@@ -1,13 +1,14 @@
 import { REDEEM_POINTS } from '../actions/types';
 
 let initialState = {
-  points: 0
+  points: false
 };
 
-export default (state = initialState.points, action) => {
+export default (state = initialState, action) => {
   switch(action.type) {
     case REDEEM_POINTS:
-      return state + action.payload;
+      let currentPoints = {points: action.payload};
+      return Object.assign({}, state, currentPoints);
     default:
       return state;
   }

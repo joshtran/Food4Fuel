@@ -54,10 +54,6 @@ class DashboardMain extends React.Component {
                     <span className="badge">{this.props.redeem}</span>
                     Points Redeemed
                   </li>
-                  <li className="list-group-item">
-                    <span className="badge">{this.props.currentPoints}</span>
-                    Current Points
-                  </li>
                 </ul>
               </div>
               <div className="panel-footer">
