@@ -46,7 +46,7 @@ class DashboardMain extends React.Component {
           {this.props.reward_points}
           <div className="col-md-5">
             <div className="box-panel panel panel-default">
-              <img className="panel-img" src="/pictures/dashboard/gas.png" alt="Gas Image"/>
+              <img src="/pictures/dashboard/fuel-graphic.png" alt="Gas Image"/>
               <div className = "panel-body">
                 <ul className="list-group">
                   <li className="list-group-item">
@@ -73,36 +73,22 @@ class DashboardMain extends React.Component {
         </div>
       </div>
 
-
-        <div className="panel panel-default">
-          <div className="panel-heading">
-            Options for redeeming points:
-          </div>
-          <div className ="panel-body">
-            <div>
-              <div className="col-sm-4"><img className="redeem-img" src="/pictures/dashboard/fuel-graphic.png" /></div>
-              <div className="col-sm-4"><img className="redeem-img" src="/pictures/dashboard/basket-graphic.png" /></div>
-              <div className="col-sm-4"><img className="redeem-img" src="/pictures/dashboard/bitcoin-graphic.png" /></div>
-            </div>
+      <div className="panel panel-default">
+        <div className="panel-heading">
+           Current stores with items available:
+        </div>
+        <div className="panel-body">
+          <div>
+            <div className="col-sm-4"><img className="redeem-img" src="/pictures/groceries/iga-square.png" /></div>
+            <div className="col-sm-4"><img className="redeem-img" src="/pictures/groceries/nestersmarket-square.png" /></div>
+            <div className="col-sm-4"><img className="redeem-img" src="/pictures/groceries/meinhardt-square.jpg" /></div>
           </div>
         </div>
-        <div className="panel panel-default">
-          <div className="panel-heading">
-             Current stores with items available:
-          </div>
-          <div className="panel-body">
-            <div>
-              <div className="col-sm-4"><img className="redeem-img" src={`/pictures/groceries/${this.props.groceries[0].picture}`} /></div>
-              <div className="col-sm-4"><img className="redeem-img" src={`/pictures/groceries/${this.props.groceries[1].picture}`} /></div>
-              <div className="col-sm-4"><img className="redeem-img" src={`/pictures/groceries/${this.props.groceries[2].picture}`} /></div>
-            </div>
-          </div>
-        <div className="panel-footer">
-          <Link className="page-scroll" to="/groeries">See more stores</Link>
-
-        </div>
+      <div className="panel-footer">
+        <Link className="page-scroll" to="/groceries">See more stores</Link>
       </div>
     </div>
+  </div>
     );
   }
 }
