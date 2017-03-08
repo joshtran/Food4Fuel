@@ -2,12 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { routeTo } from '../../routes';
 import { postPackageData } from '../../actions/packageActions';
+import { addPoints } from '../../actions/packageActions';
 
 
 class PackageDetails extends React.Component {
 
 onClick(data) {
     this.props.sendPackages(data);
+    this.props.increasePoints(this.props.auth.user.id, (this.props.auth.user.reward_points + 200));
     routeTo('/dashboard');
   };
 
@@ -50,8 +52,6 @@ onClick(data) {
             <dd>{this.deliveryDetails("name", this.props.shelters, this.props.deliveryShelter)}</dd>
             <dt>Items in package:</dt>
             <dd>{this.packageDetails(this.props.currentDelivery)}</dd>
-            <dt>Distance:</dt>
-            <dd>999 kilometers</dd>
           </dl>
           <a href='/' name='cancel'>Cancel Package</a>
         </div>
@@ -86,6 +86,9 @@ function mapDispatchToProps(dispatch) {
   return {
     sendPackages: (data) => {
       return dispatch(postPackageData(data));
+    },
+    increasePoints: (user, data) => {
+      return dispatch(addPoints(user, data));
     }
   }
 }

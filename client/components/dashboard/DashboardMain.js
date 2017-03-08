@@ -36,7 +36,6 @@ class DashboardMain extends React.Component {
   render() {
     return (
       <div>
-
       <div className="panel panel-default">
         <div className="panel-heading">
           Redeem Points
@@ -71,11 +70,13 @@ class DashboardMain extends React.Component {
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-      <div>
+
         <div className="panel panel-default">
           <div className="panel-heading">
-            Current stores with items available:
+            Options for redeeming points:
           </div>
           <div className ="panel-body">
             <div>
@@ -102,8 +103,6 @@ class DashboardMain extends React.Component {
         </div>
       </div>
     </div>
-
-    </div>
     );
   }
 }
@@ -111,7 +110,7 @@ class DashboardMain extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-  reward_points: state.auth.user.reward_points,
+  reward_points: state.userPoints,
   redeem: state.redeem,
   currentPoints: state.points,
   groceries: state.groceries
