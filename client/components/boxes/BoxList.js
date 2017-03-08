@@ -99,7 +99,7 @@ class BoxList extends React.Component {
             <div className = "panel-body">
               <ul className="list-group">
                 <li className="list-group-item">
-                  <span className="badge">{this.boxQuantity(this.props.boxes, this.props.type, this.props.groceryId)}</span>
+                  <span className="badge">{this.boxQuantity(this.props.boxes, this.props.type, this.props.groceryId) - this.productType()}</span>
                   Boxes Available
                 </li>
                 <li className="list-group-item">
