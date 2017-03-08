@@ -85,7 +85,6 @@ const mapStateToProps = (state) => ({
 function mapDispatchToProps(dispatch) {
   return {
     sendPackages: (data) => {
-      console.log("data in map dispatch/props", data);
       return dispatch(postPackageData(data));
     }
   }

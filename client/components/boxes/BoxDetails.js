@@ -7,6 +7,11 @@ import * as actions from '../../actions/currentDeliveryActions';
 class BoxDetails extends React.Component {
 
   onClick() {
+    if(this.props.produce === 0 && this.props.dairy === 0 && this.props.bakedGoods === 0) {
+      alert('Please select at least one box.');
+      return;
+    }
+
     let actions = this.props.actions;
 
     actions.allProduce(this.props.produce);
