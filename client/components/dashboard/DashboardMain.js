@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/redeemActions';
+import * as pointActions from '../../actions/pointsActions';
 
 class DashboardMain extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class DashboardMain extends React.Component {
 
     this.decrement = this.decrement.bind(this);
     this.increment = this.increment.bind(this);
+    this.redeem = this.redeem.bind(this);
   }
 
   decrement() {
@@ -26,7 +28,7 @@ class DashboardMain extends React.Component {
   }
 
   redeem() {
-
+    this.props.pointActions.redeem(this.props.reward_points - this.props.redeem);
   }
 
   render() {
@@ -52,6 +54,10 @@ class DashboardMain extends React.Component {
                     <span className="badge">{this.props.redeem}</span>
                     Points Redeemed
                   </li>
+                  <li className="list-group-item">
+                    <span className="badge">{this.props.currentPoints}</span>
+                    Current Points
+                  </li>
                 </ul>
               </div>
               <div className="panel-footer">
@@ -73,11 +79,13 @@ class DashboardMain extends React.Component {
 
 const mapStateToProps = (state) => ({
   reward_points: state.auth.user.reward_points,
-  redeem: state.redeem
+  redeem: state.redeem,
+  currentPoints: state.points
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch)
+  actions: bindActionCreators(actions, dispatch),
+  pointActions: bindActionCreators(pointActions, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardMain);

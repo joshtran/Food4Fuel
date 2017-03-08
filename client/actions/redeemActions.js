@@ -1,4 +1,4 @@
-import { DECREMENT_REDEEM_POINTS, INCREMENT_REDEEM_POINTS, REDEEM_POINTS } from './types';
+import { DECREMENT_REDEEM_POINTS, INCREMENT_REDEEM_POINTS } from './types';
 
 export function decrement() {
   return {
@@ -9,11 +9,5 @@ export function decrement() {
 export function increment() {
   return {
     type: INCREMENT_REDEEM_POINTS
-  }
-}
-
-export function redeem() {
-  return {
-    type: REDEEM_POINTS
   }
 }
