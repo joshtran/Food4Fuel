@@ -18,7 +18,7 @@ class DashboardPage extends React.Component {
             <div className="row">
             </div>
           </div>
-          <div className="col-md-9">
+          <div className="col-md-6">
             <DashboardMain />
           </div>
         </main>

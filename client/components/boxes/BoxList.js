@@ -65,7 +65,7 @@ class BoxList extends React.Component {
 
   productType() {
     let type = this.props.type;
-    
+
     if(type === 'Produce'){
       return this.props.produce
     } else if(type === 'Dairy'){
@@ -95,7 +95,7 @@ class BoxList extends React.Component {
             <div className = "panel-heading text-center">
               {this.props.type}
             </div>
-            <img className="panel-img" src={this.imageType(this.props.type)} alt="Box Image"/>
+            <img src={this.imageType(this.props.type)} alt="Box Image"/>
             <div className = "panel-body">
               <ul className="list-group">
                 <li className="list-group-item">

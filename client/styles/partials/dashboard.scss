@@ -38,7 +38,11 @@ body {
 }
 
 footer {
-    margin: 50px 0;
+  margin: 50px 0;
+}
+
+.grocery-panel {
+  width: 260px;
 }
 
 .img-center {
@@ -63,7 +67,7 @@ main {
 }
 
 .panel-img {
-  width: 100%;
+  width: 260px;
   height: 180px;
 }
 
@@ -82,7 +86,7 @@ main {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 201px;
+  max-width: 260px;
 }
 
 
