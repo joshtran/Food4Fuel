@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/redeemActions';
 import * as pointActions from '../../actions/pointsActions';
+import { Link } from 'react-router';
+
 
 class DashboardMain extends React.Component {
   constructor(props) {
@@ -33,6 +35,8 @@ class DashboardMain extends React.Component {
 
   render() {
     return (
+      <div>
+
       <div className="panel panel-default">
         <div className="panel-heading">
           Redeem Points
@@ -67,21 +71,59 @@ class DashboardMain extends React.Component {
               </div>
             </div>
           </div>
+
+      <div>
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            Current stores with items available:
+          </div>
+          <div className ="panel-body">
+            <div>
+              <div className="col-sm-4"><img className="redeem-img" src="/pictures/dashboard/fuel-graphic.png" /></div>
+              <div className="col-sm-4"><img className="redeem-img" src="/pictures/dashboard/basket-graphic.png" /></div>
+              <div className="col-sm-4"><img className="redeem-img" src="/pictures/dashboard/bitcoin-graphic.png" /></div>
+            </div>
+          </div>
+        </div>
+        <div className="panel panel-default">
+          <div className="panel-heading">
+             Current stores with items available:
+          </div>
+          <div className="panel-body">
+            <div>
+              <div className="col-sm-4"><img className="redeem-img" src={`/pictures/groceries/${this.props.groceries[0].picture}`} /></div>
+              <div className="col-sm-4"><img className="redeem-img" src={`/pictures/groceries/${this.props.groceries[1].picture}`} /></div>
+              <div className="col-sm-4"><img className="redeem-img" src={`/pictures/groceries/${this.props.groceries[2].picture}`} /></div>
+            </div>
+          </div>
+        <div className="panel-footer">
+          <Link className="page-scroll" to="/groeries">See more stores</Link>
+
         </div>
       </div>
+    </div>
+
+    </div>
     );
   }
 }
 
+
+
 const mapStateToProps = (state) => ({
   reward_points: state.auth.user.reward_points,
   redeem: state.redeem,
-  currentPoints: state.points
+  currentPoints: state.points,
+  groceries: state.groceries
 });
+
 
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actions, dispatch),
   pointActions: bindActionCreators(pointActions, dispatch)
 });
 
+
+
 export default connect(mapStateToProps, mapDispatchToProps)(DashboardMain);
+
