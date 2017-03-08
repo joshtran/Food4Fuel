@@ -2,8 +2,19 @@ import React from 'react';
 import Points from '../Points/Points';
 import BoxList from './BoxList';
 import BoxDetails from './BoxDetails';
+import { withRouter } from  'react-router';
+import { routeTo } from '../../routes';
+import { connect } from 'react-redux';
 
 class BoxesPage extends React.Component {
+
+  componentDidMount() {
+    if(!this.props.selectedGrocery) {
+      routeTo('groceries');
+      alert('Please select a Grocery store');
+    }
+  }
+
   render() {
     return (
       <div>
@@ -25,4 +36,8 @@ class BoxesPage extends React.Component {
   }
 }
 
-export default BoxesPage;
+const mapStateToProps = (state) => ({
+  selectedGrocery: state.selectedGrocery,
+});
+
+export default connect(mapStateToProps)(BoxesPage);
