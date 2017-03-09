@@ -17,17 +17,19 @@ class SheltersPage extends React.Component {
   render() {
     return (
       <div>
-        <div className="col-md-3">
-          <div className="row">
-            <Points />
+        <main>
+          <div className="col-md-3">
+            <div className="row">
+              <Points />
+            </div>
+            <div className="row">
+              <ShelterDetails />
+            </div>
           </div>
-          <div className="row">
-            <ShelterDetails />
+          <div className="col-md-9">
+            <ShelterList />
           </div>
-        </div>
-        <div className="col-md-9">
-          <ShelterList />
-        </div>
+        </main>
       </div>
     )
   }

@@ -14,7 +14,7 @@ class NavigationBar extends React.Component {
     const { isAuthenticated, user } = this.props.auth;
 
     const userNav = (
-      <nav className="navbar navbar-inverse navbar-fixed-top">
+      <nav id="dashboardNav" className="navbar navbar-fixed-top">
         <div className="container-fluid">
           <div className="navbar-header">
             <Link to="/" className="navbar-brand">Food4Fuel</Link>
@@ -23,8 +23,6 @@ class NavigationBar extends React.Component {
             <li className="loggedin-as">You are logged in as: {user.first_name} {user.last_name}</li>
             <li><a href="#" onClick={this.logout.bind(this)}>Logout</a></li>
           </ul>
-          <div className="collapse navbar-collapse">
-          </div>
         </div>
       </nav>
     );

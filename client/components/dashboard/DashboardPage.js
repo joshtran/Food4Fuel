@@ -6,23 +6,21 @@ import DashboardDetails from './DashboardDetails';
 class DashboardPage extends React.Component {
   render() {
     return (
-      <div>
-        <main className="container-fluid">
-          <div className="col-md-3">
-            <div className="row">
-              <Points />
-            </div>
-            <div className="row">
-              <DashboardDetails />
-            </div>
-            <div className="row">
-            </div>
+      <main className="container-fluid">
+        <div className="col-md-3">
+          <div className="row">
+            <Points />
           </div>
-          <div className="col-md-6">
-            <DashboardMain />
+          <div className="row">
+            <DashboardDetails />
           </div>
-        </main>
-      </div>
+          <div className="row">
+          </div>
+        </div>
+        <div className="col-md-6">
+          <DashboardMain />
+        </div>
+      </main>
     )
   }
 }
