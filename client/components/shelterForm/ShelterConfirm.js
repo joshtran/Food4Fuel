@@ -9,10 +9,10 @@ class ShelterForm extends React.Component {
 
   onClick() {
     this.props.validateDelivery();
-    routeTo('/');
+    // routeTo('/');
     this.props.addFlashMessage({
       type: 'success',
-      text: 'Message received!'
+      text: 'Enjoy your food!'
     });
   }
 
