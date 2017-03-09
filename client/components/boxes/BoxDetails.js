@@ -3,21 +3,26 @@ import { connect } from 'react-redux';
 import { routeTo } from '../../routes';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/currentDeliveryActions';
+import * as boxActions from '../../actions/boxActions';
+
 
 class BoxDetails extends React.Component {
 
   onClick() {
     if(this.props.produce === 0 && this.props.dairy === 0 && this.props.bakedGoods === 0) {
-      alert('Please select at least one box.');
-      return;
-    }
-
+      return alert('Please select at least one box.');
+    } else {
     let actions = this.props.actions;
+    let boxActions = this.props.boxActions;
 
     actions.allProduce(this.props.produce);
     actions.allDairy(this.props.dairy);
-    actions.allBakedGoods(this.props.bakedGoods)
+    actions.allBakedGoods(this.props.bakedGoods);
+    boxActions.clearBakedGoods();
+    boxActions.clearDairy();
+    boxActions.clearProduce();
     routeTo('/shelters');
+    }
   };
 
   render() {
@@ -57,7 +62,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch)
+  actions: bindActionCreators(actions, dispatch),
+  boxActions: bindActionCreators(boxActions, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoxDetails);

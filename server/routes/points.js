@@ -14,7 +14,7 @@ router.put('/', (req, res) => {
       where: { id: user }
       }).save(
       { reward_points: value},
-      { method: 'update' }
+      { method: 'update'}
     ).then(user => {
       const response = {
         reward_points: user.get('reward_points')

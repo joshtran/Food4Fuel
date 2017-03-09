@@ -1,5 +1,5 @@
 import { ADD_POINTS } from '../actions/types';
-import { SET_USER_POINTS } from '../actions/types';
+import { GET_TOTAL } from '../actions/types';
 
 let initialState = {
   userPoints: 0
@@ -7,10 +7,10 @@ let initialState = {
 
 export default (state = initialState.userPoints, action) => {
   switch(action.type) {
-    case SET_USER_POINTS:
-      return action.pointTotal;
     case ADD_POINTS:
       return action.newTotal;
+    case GET_TOTAL:
+      return action.payload;
     default:
       return state;
   }
