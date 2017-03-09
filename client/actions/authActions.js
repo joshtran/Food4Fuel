@@ -11,13 +11,6 @@ export function setCurrentUser(user) {
   };
 }
 
-export function setUserPoints(user) {
-  return {
-    type: SET_USER_POINTS,
-    pointTotal: user.reward_points
-  };
-}
-
 export function logout() {
   return dispatch => {
     localStorage.removeItem('jwtToken');
@@ -33,7 +26,6 @@ export function login(data) {
       localStorage.setItem('jwtToken', token);
       setAuthorizationToken(token);
       dispatch(setCurrentUser(jwtDecode(token)));
-      dispatch(setUserPoints(jwtDecode(token)));
     });
   }
 }
