@@ -51,6 +51,7 @@
     "sass-loader": "^4.1.0",
     "shortid": "^2.2.6",
     "twilio": "^2.11.1",
+    "url-loader": "^0.5.8",
     "validator": "^5.4.0"
   }
 }

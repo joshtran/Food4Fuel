@@ -58,6 +58,18 @@ body {
     color:#fff;
   }
 
+  a:hover {
+    background-color: none;
+  }
+
+  .logo {
+    color: #fff;
+    font-family: "Arciform", sans-serif;
+    font-size: 2.2em;
+    float: left;
+    line-height: 70px;
+  }
+
 }
 
 footer {
@@ -73,7 +85,7 @@ footer {
 }
 
 main {
-  padding-top: 60px;
+  padding-top: 90px;
 }
 
 .map {
