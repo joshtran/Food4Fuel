@@ -15,6 +15,10 @@ class DashboardMain extends React.Component {
     this.redeem = this.redeem.bind(this);
   }
 
+  onClick(groceryId) {
+    routeTo('/groceries');
+  };
+
   decrement() {
     let actions = this.props.actions;
     if (this.props.redeem >= 1000) {
@@ -87,7 +91,7 @@ class DashboardMain extends React.Component {
             </div>
           </div>
           <div className="panel-footer">
-          <Link className="page-scroll" to="/groceries">See more stores</Link>
+          <Link className="page-scroll" onClick={() => this.onClick()}>See more stores</Link>
           </div>
         </div>
       </div>
