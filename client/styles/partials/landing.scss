@@ -2,9 +2,20 @@
   background-color: #f8e9d6;
   border: 0;
   color: #000;
-  padding: 20px 20px 0 0;
+  height: 90px;
+  padding: 0 30px 0 150px;
+
+  .logo {
+    color: #ea2e70;
+    font-family: "Arciform", sans-serif;
+    font-size: 2.2em;
+    float: left;
+    line-height: 90px;
+  }
+
   .user-account {
     float: right;
+    line-height: 90px;
   }
 }
 

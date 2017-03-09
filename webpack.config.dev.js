@@ -29,6 +29,10 @@ export default {
       {
         test: /\.s?css$/,
         loaders: ["style", "css", "sass-loader"]
+      },
+      {
+        test: /\.(otf|woff|woff2|eot|ttf|svg)$/,
+        loader: 'url-loader?limit=100000'
       }
     ]
   },

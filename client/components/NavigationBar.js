@@ -17,7 +17,9 @@ class NavigationBar extends React.Component {
       <nav id="dashboardNav" className="navbar navbar-fixed-top">
         <div className="container-fluid">
           <div className="navbar-header">
-            <Link to="/" className="navbar-brand">Food4Fuel</Link>
+            <Link to="/" className="navbar-brand">
+             <div className="logo">food4fuel</div>
+            </Link>
           </div>
           <ul className="nav navbar-nav navbar-right">
             <li className="loggedin-as">You are logged in as: {user.first_name} {user.last_name}</li>
@@ -29,6 +31,11 @@ class NavigationBar extends React.Component {
 
     const guestNav = (
       <nav id="landingNav" className="navbar navbar-fixed-top">
+        <div className="navbar-header">
+          <Link to="/" className="navbar-brand">
+           <div className="logo">food4fuel</div>
+          </Link>
+        </div>
         <div className="user-account">
           <Link className="page-scroll" to="/signup">Sign up</Link>
           <Link className="page-scroll" to="/login">Login</Link>

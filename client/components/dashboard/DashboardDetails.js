@@ -5,14 +5,16 @@ class DashboardDetails extends React.Component {
 
   render() {
 
+    const { isAuthenticated, user } = this.props.auth;
+
     return (
       <div className = "panel panel-default">
          <div className = "panel-heading">
-          JON DOE
+          Greetings
          </div>
 
          <div className = "panel-body">
-         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+         <p>Welcome back {user.first_name}!</p>
          </div>
          <div className = "panel-footer">
          </div>
@@ -21,4 +23,15 @@ class DashboardDetails extends React.Component {
   }
 }
 
-export default connect(null)(DashboardDetails);
+
+DashboardDetails.propTypes = {
+  auth: React.PropTypes.object.isRequired
+}
+
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+}
+
+export default connect(mapStateToProps)(DashboardDetails);
