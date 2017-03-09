@@ -19,7 +19,7 @@ import shelter_form from './routes/ShelterForm';
 import notifications from './routes/notifications';
 import points from './routes/points';
 
-
+import { getScheduledPackages } from './models/package';
 import { getAllPackages } from './models/package';
 import { getAllGroceries } from './models/grocery';
 import { getAllShelters } from './models/shelter'
@@ -57,12 +57,14 @@ app.get('/default_state.js', (req, res) => {
   Promise.all([
     getAllGroceries(),
     getAllShelters(),
-    getAllBoxes()
-  ]).then(([groceries, shelters, boxes]) => {
+    getAllBoxes(),
+    getScheduledPackages()
+  ]).then(([groceries, shelters, boxes, packages]) => {
     var state = {
       groceries,
       shelters,
-      boxes
+      boxes,
+      packages
     };
     res.set('Content-Type', 'application/javascript');
     res.send(`var __DEFAULT_STATE = ${JSON.stringify(state)};`);
