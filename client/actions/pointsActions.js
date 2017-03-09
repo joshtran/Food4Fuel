@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { REDEEM_POINTS, GET_TOTAL } from './types';
+import { GET_TOTAL } from './types';
 
-export function redeem(redeem) {
-  return {
-    type: REDEEM_POINTS,
-    payload: redeem
-  }
-}
+// export function redeem(redeem) {
+//   return {
+//     type: REDEEM_POINTS,
+//     payload: redeem
+//   }
+// }
 
 export function updateCurrentPoints(newTotal) {
   return {

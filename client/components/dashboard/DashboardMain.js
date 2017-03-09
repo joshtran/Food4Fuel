@@ -32,7 +32,7 @@ class DashboardMain extends React.Component {
   redeem() {
     this.props.pointActions.currentPoints(this.props.auth.user.id, (this.props.reward_points - this.props.redeem));
     this.props.actions.reset();
-    routeTo('/groceries');
+    routeTo('/dashboard-confirm');
   }
 
   render() {
@@ -98,7 +98,7 @@ class DashboardMain extends React.Component {
 const mapStateToProps = (state) => ({
   reward_points: state.userPoints,
   redeem: state.redeem,
-  currentPoints: state.points,
+  // currentPoints: state.points,
   groceries: state.groceries,
   auth: state.auth
 });

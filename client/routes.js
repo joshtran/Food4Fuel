@@ -11,6 +11,7 @@ import SheltersPage from './components/shelters/SheltersPage';
 import BoxesPage from './components/boxes/BoxesPage';
 import DashboardPage from './components/dashboard/DashboardPage';
 import ShelterPage from './components/shelterForm/ShelterPage';
+import DashboardConfirm from './components/dashboard/DashboardConfirm';
 
 import requireAuth from './utils/requireAuth';
 
@@ -30,5 +31,6 @@ export default (
     <Route path="boxes" component={BoxesPage} />
     <Route path="dashboard" component={DashboardPage} />
     <Route path="shelter-confirm" component={ShelterPage} />
+    <Route path="dashboard-confirm" component={DashboardConfirm} />
   </Route>
 )
