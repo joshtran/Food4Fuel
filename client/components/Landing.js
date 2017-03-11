@@ -14,7 +14,7 @@ class Greetings extends React.Component {
   render() {
     return (
       <div>
-        <header className="masthead">
+        <header className="masthead container-fluid">
           <div className="container">
             <div className="row">
               <div className="tag-line col-lg-12">

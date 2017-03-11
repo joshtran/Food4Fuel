@@ -29,6 +29,7 @@ body {
   border-radius: 50%;
   position: relative;
   margin: auto;
+  transition: all 1s;
 
 
   .copy {
@@ -41,36 +42,14 @@ body {
        -o-transform:translate(-50%, -50%);
           transform:translate(-50%, -50%);
   }
-}
-
-#dashboardNav {
-  background: #0077b7; /* Old browsers */
-  background: -moz-linear-gradient(left,  #0077b7 0%, #009ec5 34%, #01a0bd 57%, #01a0bd 57%, #00a5b8 77%, #00b0a2 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left,  #0077b7 0%,#009ec5 34%,#01a0bd 57%,#01a0bd 57%,#00a5b8 77%,#00b0a2 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right,  #0077b7 0%,#009ec5 34%,#01a0bd 57%,#01a0bd 57%,#00a5b8 77%,#00b0a2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0077b7', endColorstr='#00b0a2',GradientType=1 ); /* IE6-9 */
-  color: #fff;
-  height: 90px;
-  padding-left: 30px;
-  padding-right: 30px;
-
-  a:link {
-    color:#fff;
-  }
-
-  a:hover {
-    background-color: none;
-  }
-
-  .logo {
-    color: #fff;
-    font-family: "Arciform", sans-serif;
-    font-size: 2.2em;
-    float: left;
-    line-height: 70px;
-  }
 
 }
+
+ .wrap {
+    background-color: tomato;
+    transform: scale(1.1);
+  }
+
 
 footer {
   margin: 50px 0;
