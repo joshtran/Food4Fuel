@@ -1,5 +1,11 @@
-import { ADD_DELIVERY_GROCERY, ADD_DELIVERY_PRODUCE, ADD_DELIVERY_DAIRY, ADD_DELIVERY_BAKED_GOODS, ADD_DELIVERY_SHELTER } from './types';
+import { ADD_DELIVERY_GROCERY, ADD_DELIVERY_PRODUCE, ADD_DELIVERY_DAIRY, ADD_DELIVERY_BAKED_GOODS, ADD_DELIVERY_SHELTER, CLEAR_DELIVERY } from './types';
 
+
+export function clearDelivery() {
+  return {
+    type: CLEAR_DELIVERY,
+  };
+}
 
 export function setDeliveryGrocery(groceryId) {
   return {

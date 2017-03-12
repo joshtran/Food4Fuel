@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { GET_PACKAGES } from './types';
 import { ADD_POINTS } from './types';
+import { updateCurrentPoints } from './pointsActions';
 
 export function retrievePackages(packages) {
   return {
@@ -9,34 +10,26 @@ export function retrievePackages(packages) {
   };
 }
 
-export function updatePoints(newTotal) {
-  return {
-    type: ADD_POINTS,
-    newTotal: newTotal.reward_points
-  };
-}
-
 export function addPoints (userId, newPointTotal) {
-  let databaseUpdate = {
+  let update = {
     user: userId,
     value: newPointTotal,
     requestType: "add"
   };
   return dispatch => {
-    return axios.put('/api/points', databaseUpdate)
+    return axios.put('/api/points', update)
     .then(res => {
-      dispatch(updatePoints(res.data.response));
+      dispatch(updateCurrentPoints(res.data.response));
     });
   }
 }
-
 
 export function postPackageData(data) {
   return dispatch => {
     return axios.post('/api/package', data)
     .then(res => {
       const packageArray = res.request.response;
-      axios.get('/api/notifications');
+      // axios.get('/api/notifications');
     });
   }
 }

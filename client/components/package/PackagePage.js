@@ -17,24 +17,22 @@ class PackagePage extends React.Component {
 
   render() {
     return (
-      <div>
-        <main className="container-fluid">
-          <div className="col-md-3">
-            <div className="row">
-              <Points />
-            </div>
-            <div className="row">
-              <PackageDetails />
-            </div>
+      <main className="container-fluid">
+        <div className="col-md-3">
+          <div className="row">
+            <Points />
           </div>
-          <div className="col-md-3">
-            <PackageForm />
+          <div className="row">
+            <PackageDetails />
           </div>
-          <div className="col-md-6">
-            <PackageMap />
-          </div>
-        </main>
-      </div>
+        </div>
+        <div className="col-md-3">
+          <PackageForm />
+        </div>
+        <div className="col-md-6">
+          <PackageMap />
+        </div>
+      </main>
     );
   }
 }

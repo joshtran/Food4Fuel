@@ -31,7 +31,7 @@ class Points extends React.Component {
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
-  reward_points: state.userPoints,
+  reward_points: state.userPoints.total,
   redeem: state.redeem
 });
 

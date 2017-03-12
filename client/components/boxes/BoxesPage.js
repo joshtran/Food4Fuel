@@ -16,23 +16,21 @@ class BoxesPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <main>
-          <div className="col-md-3">
-            <div className="row">
-              <Points />
-            </div>
-            <div className="row">
-              <BoxDetails />
-            </div>
+      <main>
+        <div className="col-md-3">
+          <div className="row">
+            <Points />
           </div>
-          <div className="col-md-9">
-            <BoxList type="Produce" />
-            <BoxList type="Dairy" />
-            <BoxList type="Baked Goods" />
+          <div className="row">
+            <BoxDetails />
           </div>
-        </main>
-      </div>
+        </div>
+        <div className="col-md-9">
+          <BoxList type="Produce" />
+          <BoxList type="Dairy" />
+          <BoxList type="Baked Goods" />
+        </div>
+      </main>
     )
   }
 }

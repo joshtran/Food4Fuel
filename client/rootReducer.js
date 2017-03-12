@@ -12,7 +12,6 @@ import produceReducer from './reducers/produceReducer';
 import dairyReducer from './reducers/dairyReducer';
 import bakedGoodsReducer from './reducers/bakedGoodsReducer';
 import redeemReducer from './reducers/redeemReducer';
-import pointsReducer from './reducers/pointsReducer';
 import userPointsReducer from './reducers/userPointsReducer';
 import shelterConfirm from './reducers/shelterConfirmReducer';
 
@@ -30,6 +29,5 @@ export default combineReducers({
   dairy: dairyReducer,
   bakedGoods: bakedGoodsReducer,
   redeem: redeemReducer,
-  points: pointsReducer,
   userPoints: userPointsReducer
 });

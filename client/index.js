@@ -8,6 +8,7 @@ import rootReducer from './rootReducer';
 import setAuthorizationToken from './utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
 import { setCurrentUser } from './actions/authActions';
+import { updateCurrentPoints } from './actions/pointsActions';
 
 require("./styles/application.scss");
 
@@ -25,6 +26,7 @@ const store = createStore(
 if (localStorage.jwtToken) {
   setAuthorizationToken(localStorage.jwtToken);
   store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
+  store.dispatch(updateCurrentPoints(jwtDecode(localStorage.jwtToken)));
 }
 
 render(

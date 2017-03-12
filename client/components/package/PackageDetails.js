@@ -3,19 +3,17 @@ import { connect } from 'react-redux';
 import { routeTo } from '../../routes';
 import { postPackageData } from '../../actions/packageActions';
 import { addPoints } from '../../actions/packageActions';
+import { clearDelivery } from '../../actions/currentDeliveryActions';
 
 
 class PackageDetails extends React.Component {
 
-onClick(data) {
+  onClick(data) {
     this.props.sendPackages(data);
-    this.props.increasePoints(this.props.auth.user.id, (this.props.auth.user.reward_points + 200));
+    this.props.increasePoints(this.props.auth.user.id, (this.props.reward_points + 200));
+    this.props.resetCurrentDelivery();
     routeTo('/dashboard');
-    this.props.addFlashMessage({
-      type: 'success',
-      text: "You've succesfully accepted a package!"
-    });
-  };
+  }
 
   deliveryDetails(infoType, businessType, deliveryId) {
     let result;
@@ -70,9 +68,7 @@ onClick(data) {
 }
 
 PackageDetails.propTypes = {
-  auth: React.PropTypes.object.isRequired,
-  addFlashMessage: React.PropTypes.func.isRequired
-
+  auth: React.PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -82,7 +78,8 @@ const mapStateToProps = (state) => ({
   shelters: state.shelters,
   deliveryGrocery: state.currentDelivery.deliveryGrocery,
   deliveryShelter: state.currentDelivery.deliveryShelter,
-  currentDelivery: state.currentDelivery
+  currentDelivery: state.currentDelivery,
+  reward_points: state.userPoints.total
 });
 
 function mapDispatchToProps(dispatch) {
@@ -92,6 +89,9 @@ function mapDispatchToProps(dispatch) {
     },
     increasePoints: (user, data) => {
       return dispatch(addPoints(user, data));
+    },
+    resetCurrentDelivery: () => {
+      return dispatch(clearDelivery());
     }
   }
 }
